@@ -3,7 +3,9 @@
 const createService = require('feathers-mongoose');
 const createModel = require('../../models/users.model');
 const hooks = require('./users.hooks');
-// !code: imports // !end
+// !code: imports 
+const { schema } = require('./users.schema');
+// !end
 // !code: init // !end
 
 let moduleExports = function (app) {
@@ -19,7 +21,19 @@ let moduleExports = function (app) {
   // !code: options_change // !end
 
   // Initialize our service with any options it requires
-  app.use('/users', createService(options));
+
+  const users = createService(options);
+  users.docs = {
+    description: 'Service to manage users',
+    definitions: {
+      'users': {
+        $ref: '#/definitions/users'
+      },
+      users: schema
+    }
+  };
+  
+  app.use('/users', users);
 
   // Get our initialized service so that we can register hooks
   const service = app.service('users');

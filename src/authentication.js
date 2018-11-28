@@ -1,4 +1,3 @@
-
 // Configure authentication. (Can be re-generated.)
 const authentication = require('@feathersjs/authentication');
 const jwt = require('@feathersjs/authentication-jwt');
@@ -37,7 +36,41 @@ let moduleExports = function (app) {
     },
     // !code: after // !end
   });
-  // !code: func_return // !end
+  // !code: func_return
+
+  const service = app.service('authentication');
+  service.docs = {
+    description: 'Service to authentication',
+    definitions: {
+      'authentication': {
+        $ref: '#/definitions/authentication'
+      },
+      authentication: {
+        "type": "object",
+        "required": [
+          "strategy",
+          "email",
+          "password"
+        ],
+        "properties": {
+          "strategy": {
+            "type": "string",
+            "default": "local",
+          },
+          "email": {
+            "type": "string",
+          },
+          "password": {
+            "type": "string",
+          }
+        }
+      }
+    }
+  }
+
+  app.use('/authentication', service);
+
+  // !end
 };
 
 // !code: exports // !end

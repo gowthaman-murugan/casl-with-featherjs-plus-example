@@ -21,7 +21,9 @@ const generatorSpecs = require('../feathers-gen-specs.json');
 const authentication = require('./authentication');
 
 const mongoose = require('./mongoose');
-// !code: imports // !end
+// !code: imports 
+const swagger = require('feathers-swagger');
+// !end
 // !code: init // !end
 
 const app = express(feathers());
@@ -51,6 +53,26 @@ app.use('/', express.static(app.get('public')));
 app.configure(express.rest(
   // !code: express_rest // !end
 ));
+app.configure(swagger({
+  docsPath: '/docs',
+  uiIndex: path.resolve('./swagger/docs.html'),
+  info: {
+    title: 'CASL with FeatherJs plus example',
+    description: 'Api for CASL with FeatherJs plus example'
+  },
+  security: [
+    {
+     APIKeyHeader: []
+    }
+  ],
+   securityDefinitions: {
+    APIKeyHeader: {
+      type: 'apiKey',
+      name: 'Authorization',
+      in: 'header'
+    }
+ }
+}))
 app.configure(socketio(
   // !code: express_socketio // !end
 ));

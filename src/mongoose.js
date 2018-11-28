@@ -3,7 +3,9 @@
 const mongoose = require('mongoose');
 const logger = require('./logger');
 // !code: imports // !end
-// !code: init // !end
+// !code: init 
+mongoose.set('debug',true);
+// !end
 
 module.exports = function (app) {
   mongoose.Promise = global.Promise;
