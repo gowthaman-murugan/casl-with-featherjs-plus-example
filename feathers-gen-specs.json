@@ -1,0 +1,70 @@
+{
+  "options": {
+    "ver": "1.0.0",
+    "inspectConflicts": false,
+    "semicolons": true,
+    "freeze": [],
+    "ts": false
+  },
+  "app": {
+    "environmentsAllowingSeedData": "",
+    "seedData": false,
+    "name": "casl-featherjs-plus-example",
+    "description": "Project casl-featherjs-plus-example",
+    "src": "src",
+    "packager": "npm@>= 3.0.0",
+    "providers": [
+      "rest",
+      "socketio"
+    ]
+  },
+  "services": {
+    "users": {
+      "name": "users",
+      "nameSingular": "user",
+      "subFolder": "",
+      "fileName": "users",
+      "adapter": "mongoose",
+      "path": "/users",
+      "isAuthEntity": true,
+      "requiresAuth": false,
+      "graphql": false
+    },
+    "roles": {
+      "name": "roles",
+      "nameSingular": "role",
+      "subFolder": "",
+      "fileName": "roles",
+      "adapter": "mongoose",
+      "path": "/roles",
+      "isAuthEntity": false,
+      "requiresAuth": false,
+      "graphql": false
+    },
+    "organizations": {
+      "name": "organizations",
+      "nameSingular": "organization",
+      "subFolder": "",
+      "fileName": "organizations",
+      "adapter": "mongoose",
+      "path": "/organizations",
+      "isAuthEntity": false,
+      "requiresAuth": false,
+      "graphql": false
+    }
+  },
+  "hooks": {},
+  "authentication": {
+    "strategies": [
+      "local"
+    ],
+    "entity": "users"
+  },
+  "connections": {
+    "mongoose": {
+      "database": "mongodb",
+      "adapter": "mongoose",
+      "connectionString": "mongodb://localhost:27017/casl_featherjs_plus_example"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "name": "casl-featherjs-plus-example",
+  "description": "Project casl-featherjs-plus-example",
+  "version": "0.0.0",
+  "homepage": "",
+  "main": "src",
+  "keywords": [
+    "feathers"
+  ],
+  "author": {
+    "name": "gowthaman-i2i",
+    "email": "gowthaman@ideas2it.com"
+  },
+  "contributors": [],
+  "bugs": {},
+  "directories": {
+    "lib": "src",
+    "test": "test/"
+  },
+  "engines": {
+    "node": "^10.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "scripts": {
+    "test": "npm run eslint && npm run mocha",
+    "test:all": "npm run eslint && NODE_ENV= npm run mocha",
+    "eslint": "eslint src/. test/. --config .eslintrc.json",
+    "dev": "nodemon src/",
+    "start": "node src/",
+    "start:seed": "NODE_ENV= node src/ --seed",
+    "mocha": "mocha test/ --recursive --exit --timeout 10000"
+  },
+  "dependencies": {
+    "@feathersjs/authentication": "^2.1.13",
+    "@feathersjs/authentication-jwt": "^2.0.7",
+    "@feathersjs/authentication-local": "^1.2.7",
+    "@feathersjs/configuration": "^2.0.4",
+    "@feathersjs/errors": "^3.3.4",
+    "@feathersjs/express": "^1.2.7",
+    "@feathersjs/feathers": "^3.2.3",
+    "@feathersjs/socketio": "^3.2.7",
+    "ajv": "^5.5.2",
+    "compression": "^1.7.3",
+    "cors": "^2.8.5",
+    "feathers-hooks-common": "^4.19.0",
+    "feathers-mongoose": "^6.3.0",
+    "helmet": "^3.15.0",
+    "lodash.merge": "^4.6.1",
+    "mongodb-core": "^3.1.9",
+    "mongoose": "^5.3.14",
+    "serve-favicon": "^2.5.0",
+    "winston": "^3.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.7",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  }
+}
