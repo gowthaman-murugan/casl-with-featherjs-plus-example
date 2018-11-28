@@ -28,7 +28,9 @@
     "dev": "nodemon src/",
     "start": "node src/",
     "start:seed": "NODE_ENV= node src/ --seed",
-    "mocha": "mocha test/ --recursive --exit --timeout 10000"
+    "mocha": "mocha test/ --recursive --exit --timeout 10000",
+    "seed": "node scripts/register-user.js"
+
   },
   "dependencies": {
     "@feathersjs/authentication": "^2.1.13",

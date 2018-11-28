@@ -35,5 +35,5 @@
       "passwordField": "password"
     }
   },
-  "mongodb": "mongodb://localhost:27017/casl_featherjs_plus_example"
+  "mongodb": "mongodb://localhost:27017/example"
 }
