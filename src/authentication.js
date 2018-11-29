@@ -2,8 +2,9 @@
 const authentication = require('@feathersjs/authentication');
 const jwt = require('@feathersjs/authentication-jwt');
 const local = require('@feathersjs/authentication-local');
-
-// !code: imports // !end
+// !code: imports 
+const { packRules } = require('@casl/ability/extra')
+// !end
 // !code: init // !end
 
 let moduleExports = function (app) {
@@ -22,7 +23,8 @@ let moduleExports = function (app) {
       .service('permissions')
       .find({
         query: {
-          roles: roleIds
+          roleId: roleIds,
+          $select : ['actions','subject','inverted','fields','reason','conditions']
         }
       });
   };
@@ -34,11 +36,12 @@ let moduleExports = function (app) {
     // make sure params.payload exists
     context.params.payload = context.params.payload || {};
     const user = await getLoggedInUser(context);
-    const permission = await getUserPermissions(user.roles, context);
+    const permissionList = await getUserPermissions(user.roles, context);
     // merge in a `tenant` property
+    console.log("....permission",permissionList);
     Object.assign(context.params.payload, {
       organizationId: user.organizationId,
-      permissions: permission
+      permissions: packRules(permissionList.data || [])
     });
 
     return context;
