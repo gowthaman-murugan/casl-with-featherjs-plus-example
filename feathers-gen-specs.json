@@ -64,7 +64,17 @@
       "graphql": false
     }
   },
-  "hooks": {},
+  "hooks": {
+    "authorize": {
+      "fileName": "authorize",
+      "camelName": "authorize",
+      "ifMulti": "y",
+      "multiServices": [
+        "*app"
+      ],
+      "singleService": ""
+    }
+  },
   "authentication": {
     "strategies": [
       "local"
