@@ -2,19 +2,25 @@
 // Application hooks that run for every service. (Can be re-generated.)
 const commonHooks = require('feathers-hooks-common');
 // !<DEFAULT> code: imports
+const { authenticate } = require('@feathersjs/authentication').hooks;
 const log = require('./hooks/log');
 // !end
 
 // !<DEFAULT> code: used
 // eslint-disable-next-line no-unused-vars
-const { iff } = commonHooks;
+const { when } = commonHooks;
 // !end
 // !code: init // !end
 
 let moduleExports = {
   before: {
     // !<DEFAULT> code: before
-    all: [ log() ],
+    all: [ log(), when(
+      hook =>
+        hook.params.provider &&
+         `/${hook.path}` !== hook.app.get('authentication').path,
+         authenticate('jwt')
+    ) ],
     find: [],
     get: [],
     create: [],
