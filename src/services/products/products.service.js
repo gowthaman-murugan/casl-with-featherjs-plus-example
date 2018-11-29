@@ -1,10 +1,10 @@
 
-// Initializes the `permissions` service on path `/permissions`. (Can be re-generated.)
+// Initializes the `products` service on path `/products`. (Can be re-generated.)
 const createService = require('feathers-mongoose');
-const createModel = require('../../models/permissions.model');
-const hooks = require('./permissions.hooks');
+const createModel = require('../../models/products.model');
+const hooks = require('./products.hooks');
 // !code: imports 
-const { schema } = require('./permissions.schema');
+const { schema } = require('./products.schema');
 
 // !end
 // !code: init // !end
@@ -21,21 +21,22 @@ let moduleExports = function (app) {
   };
   // !code: options_change // !end
   
-  const permissions = createService(options);
-  permissions.docs = {
-    description: 'Service to manage permissions',
+  const products = createService(options);
+  products.docs = {
+    description: 'Service to manage products',
     definitions: {
-      'permissions': {
-        $ref: '#/definitions/permissions'
+      'products': {
+        $ref: '#/definitions/products'
       },
-      permissions: schema
+      products: schema
     }
   };
+
   // Initialize our service with any options it requires
-  app.use('/permissions', createService(options));
+  app.use('/products', products);
 
   // Get our initialized service so that we can register hooks
-  const service = app.service('permissions');
+  const service = app.service('products');
 
   service.hooks(hooks);
   // !code: func_return // !end
