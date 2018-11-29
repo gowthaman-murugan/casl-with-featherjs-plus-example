@@ -14,13 +14,11 @@ let moduleExports = merge({},
       type: [
         String
       ],
-      required: true,
-      unique: true
+      required: true
     },
     subject: {
       type: String,
-      required: true,
-      unique: true
+      required: true
     },
     conditions: {},
     fields: [
@@ -33,8 +31,7 @@ let moduleExports = merge({},
     reason: String,
     roleId: {
       type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      unique: true
+      required: true
     },
     organizationId: mongoose.Schema.Types.ObjectId,
     createdBy: mongoose.Schema.Types.ObjectId,

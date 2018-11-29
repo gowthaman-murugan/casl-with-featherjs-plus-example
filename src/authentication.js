@@ -13,7 +13,37 @@ let moduleExports = function (app) {
   app.configure(authentication(config));
   app.configure(jwt());
   app.configure(local());
-  // !code: loc_1 // !end
+  // !code: loc_1
+  const getLoggedInUser = context => {
+    return context.app.service('users').get(context.params.payload.userId);
+  };
+  const getUserPermissions = (roleIds, context) => {
+    return context.app
+      .service('permissions')
+      .find({
+        query: {
+          roles: roleIds
+        }
+      });
+  };
+
+  const addTenantIdToJwtPayload = async context => {
+    // This hook adds the `tenant` attribute to the JWT payload by
+    // modifying params.payload.
+
+    // make sure params.payload exists
+    context.params.payload = context.params.payload || {};
+    const user = await getLoggedInUser(context);
+    const permission = await getUserPermissions(user.roles, context);
+    // merge in a `tenant` property
+    Object.assign(context.params.payload, {
+      organizationId: user.organizationId,
+      permissions: permission
+    });
+
+    return context;
+  };
+  // !end
 
   // !code: loc_2 // !end
 
@@ -25,6 +55,7 @@ let moduleExports = function (app) {
       create: [
         // !<DEFAULT> code: before_create
         authentication.hooks.authenticate(config.strategies),
+        addTenantIdToJwtPayload
         // !end
       ],
       remove: [

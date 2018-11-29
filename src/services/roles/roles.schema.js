@@ -20,7 +20,6 @@ let schema = {
   // Fields with unique values.
   uniqueItemProperties: [
     // !code: schema_unique
-    'name'
     // !end
   ],
 

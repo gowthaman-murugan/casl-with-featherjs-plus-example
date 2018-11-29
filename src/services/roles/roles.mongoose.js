@@ -15,7 +15,10 @@ let moduleExports = merge({},
       required: true,
       unique: true
     },
-    organizationId: mongoose.Schema.Types.ObjectId,
+    organizationId: {
+      type: mongoose.Schema.Types.ObjectId,
+      unique: true
+    },
     createdBy: mongoose.Schema.Types.ObjectId,
     updatedBy: mongoose.Schema.Types.ObjectId
   },

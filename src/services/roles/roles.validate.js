@@ -21,7 +21,8 @@ let base = merge({},
       "name"
     ],
     uniqueItemProperties: [
-      "name"
+      "name",
+      "organizationId"
     ],
     properties: {
       name: {

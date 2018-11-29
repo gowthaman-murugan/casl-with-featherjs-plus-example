@@ -3,7 +3,7 @@
 const createService = require('feathers-mongoose');
 const createModel = require('../../models/permissions.model');
 const hooks = require('./permissions.hooks');
-// !code: imports 
+// !code: imports
 const { schema } = require('./permissions.schema');
 
 // !end

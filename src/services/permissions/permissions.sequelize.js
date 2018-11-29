@@ -13,12 +13,10 @@ let moduleExports = merge({},
   {
     actions: {
       type: DataTypes.JSONB,
-      unique: true,
       allowNull: false
     },
     subject: {
       type: DataTypes.TEXT,
-      unique: true,
       allowNull: false
     },
     conditions: {
@@ -36,7 +34,6 @@ let moduleExports = merge({},
     },
     roleId: {
       type: DataTypes.INTEGER,
-      unique: true,
       allowNull: false
     },
     organizationId: {

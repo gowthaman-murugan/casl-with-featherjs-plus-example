@@ -22,10 +22,7 @@ let schema = {
   // Fields with unique values.
   uniqueItemProperties: [
     // !code: schema_unique
-    "actions",
-    "subject",
-    "roleId",
-    // !end
+// !end
   ],
 
   // Fields in the model.

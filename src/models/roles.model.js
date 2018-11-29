@@ -15,6 +15,8 @@ let moduleExports = function (app) {
 
   // !<DEFAULT> code: mongoose_client
   const roles = new mongooseClient.Schema(mongooseSchema, { timestamps: true });
+  roles.index({ name: 1, organizationId: 1 }, { unique: true });
+
   // !end
 
   let existingModel = mongooseClient.models['roles']; // needed for client/server tests

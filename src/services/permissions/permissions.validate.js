@@ -22,11 +22,7 @@ let base = merge({},
       "subject",
       "roleId"
     ],
-    uniqueItemProperties: [
-      "actions",
-      "subject",
-      "roleId"
-    ],
+    uniqueItemProperties: [],
     properties: {
       actions: {
         type: "array",

@@ -17,7 +17,8 @@ let moduleExports = merge({},
       allowNull: false
     },
     organizationId: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      unique: true
     },
     createdBy: {
       type: DataTypes.INTEGER
