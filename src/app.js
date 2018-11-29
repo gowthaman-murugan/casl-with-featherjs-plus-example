@@ -1,4 +1,3 @@
-
 // Configure Feathers app. (Can be re-generated.)
 // !code: preface // !end
 const path = require('path');
@@ -40,7 +39,9 @@ app.use(helmet());
 app.use(cors());
 app.use(compress());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({
+  extended: true
+}));
 app.use(favicon(path.join(app.get('public'), 'favicon.ico')));
 // !<DEFAULT> code: use_static
 // Host the public folder
@@ -54,24 +55,35 @@ app.configure(express.rest(
   // !code: express_rest // !end
 ));
 app.configure(swagger({
-  docsPath: '/docs',
-  uiIndex: path.resolve('./swagger/docs.html'),
-  info: {
-    title: 'CASL with FeatherJs plus example',
-    description: 'Api for CASL with FeatherJs plus example'
-  },
-  security: [
-    {
-     APIKeyHeader: []
-    }
-  ],
-   securityDefinitions: {
-    APIKeyHeader: {
+  swagger: "2.0",
+  securityDefinitions: {
+    'access-token': {
       type: 'apiKey',
       name: 'Authorization',
       in: 'header'
     }
- }
+  },
+  security: [{
+    'access-token': []
+  }],
+  docsPath: '/docs',
+  uiIndex: true,
+  info: {
+    title: 'CASL with FeatherJs plus example',
+    description: 'Api for CASL with FeatherJs plus example',
+    version: '1.0'
+  },
+  schemes: [
+
+    "http",
+    //"https"
+  ],
+  consumes: [
+    "application/json"
+  ],
+  produces: [
+    "application/json"
+  ],
 }))
 app.configure(socketio(
   // !code: express_socketio // !end
@@ -91,7 +103,9 @@ app.configure(channels);
 
 // Configure a middleware for 404s and the error handler
 app.use(express.notFound());
-app.use(express.errorHandler({ logger }));
+app.use(express.errorHandler({
+  logger
+}));
 // !code: config_end // !end
 
 app.hooks(appHooks);
