@@ -51,6 +51,17 @@
       "isAuthEntity": false,
       "requiresAuth": false,
       "graphql": false
+    },
+    "permissions": {
+      "name": "permissions",
+      "nameSingular": "permission",
+      "subFolder": "",
+      "fileName": "permissions",
+      "adapter": "mongoose",
+      "path": "/permissions",
+      "isAuthEntity": false,
+      "requiresAuth": false,
+      "graphql": false
     }
   },
   "hooks": {},

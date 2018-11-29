@@ -1,6 +1,7 @@
 
 // Configure the Feathers services. (Can be re-generated.)
 let organizations = require('./organizations/organizations.service');
+let permissions = require('./permissions/permissions.service');
 let roles = require('./roles/roles.service');
 let users = require('./users/users.service');
 
@@ -10,6 +11,7 @@ let users = require('./users/users.service');
 // eslint-disable-next-line no-unused-vars
 let moduleExports = function (app) {
   app.configure(organizations);
+  app.configure(permissions);
   app.configure(roles);
   app.configure(users);
   // !code: func_return // !end
