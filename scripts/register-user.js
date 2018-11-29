@@ -13,21 +13,13 @@ const addDefaultData = async () => {
     defaultData.user.roles = [roleObj._id];
     const userObj = await userService.create(defaultData.user);
     console.log('User permission has been created successfully', userObj);
-    // const permissionObj = {
-    //   subject: 'all',
-    //   permissions: [
-    //     {
-    //       name: roleObj.name,
-    //       _id: roleObj._id,
-    //       permission: defaultData.permission
-    //     }
-    //   ]
-    // };
-    // const permission = await permissionService.patch(null, permissionObj, {
-    //   isSeedData: true
-    // });
-   // console.log('Default permission has been created successfully', permission);
-
+    const permissionObj = {
+      subject: 'all',
+      roleId: roleObj._id,
+      actions: ['manage']
+    };
+    const permission = await permissionService.create(permissionObj);
+    console.log('Default permission has been created successfully', permission);
     process.exit();
   } catch (error) {
     console.log(error);

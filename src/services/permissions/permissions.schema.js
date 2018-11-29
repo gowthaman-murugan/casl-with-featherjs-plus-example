@@ -14,63 +14,63 @@ let schema = {
   // Required fields.
   required: [
     // !code: schema_required
-      "actions",
-      "subject",
-      "roleId",
-      // !end
+    "actions",
+    "subject",
+    "roleId",
+    // !end
   ],
   // Fields with unique values.
   uniqueItemProperties: [
     // !code: schema_unique
     "actions",
-      "subject",
-      "roleId",
+    "subject",
+    "roleId",
     // !end
   ],
 
   // Fields in the model.
   properties: {
     // !code: schema_properties
-    actions:{
-      type:'array',
-      items:{
-        type:'string'
+    actions: {
+      type: 'array',
+      items: {
+        type: 'string'
       }
     },
-    subject:{
-      type:'string'
+    subject: {
+      type: 'string'
     },
-    conditions:{
-      type:'object'
+    conditions: {
+      type: 'object'
     },
-    fields:{
-      type:'array',
-      items:{
-        type:'string'
+    fields: {
+      type: 'array',
+      items: {
+        type: 'string'
       }
     },
-    inverted:{
-      type:'boolean',
-      default:'false'
+    inverted: {
+      type: 'boolean',
+      default: 'false'
     },
-    reason:{
-      type:'string'
+    reason: {
+      type: 'string'
     },
-    roleId:{
-      type:'ID',
+    roleId: {
+      type: 'ID',
       ref: 'roles',
     },
-    organizationId:{
-      type : 'ID',
-      ref:'organizations'
+    organizationId: {
+      type: 'ID',
+      ref: 'organizations'
     },
-    createdBy:{
-      type : 'ID',
-      ref:'users'
+    createdBy: {
+      type: 'ID',
+      ref: 'users'
     },
-    updatedBy:{
-      type : 'ID',
-      ref:'users'
+    updatedBy: {
+      type: 'ID',
+      ref: 'users'
     }
     // !end
   },
@@ -84,7 +84,9 @@ let extensions = {
     // !code: graphql_header
     name: 'Permission',
     service: {
-      sort: { _id: 1 },
+      sort: {
+        _id: 1
+      },
     },
     // sql: {
     //   sqlTable: 'Permissions',

@@ -3,6 +3,8 @@
 const commonHooks = require('feathers-hooks-common');
 // eslint-disable-next-line no-unused-vars
 const authorize = require('./hooks/authorize');
+// eslint-disable-next-line no-unused-vars
+const timestamp = require('./hooks/timestamp');
 // !<DEFAULT> code: imports
 const { authenticate } = require('@feathersjs/authentication').hooks;
 const log = require('./hooks/log');
@@ -26,8 +28,8 @@ let moduleExports = {
     ) ],
     find: [],
     get: [],
-    create: [],
-    update: [],
+    create: [timestamp()],
+    update: [timestamp()],
     patch: [],
     remove: []
     // !end

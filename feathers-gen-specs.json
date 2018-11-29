@@ -95,6 +95,15 @@
         "*app"
       ],
       "singleService": ""
+    },
+    "timestamp": {
+      "fileName": "timestamp",
+      "camelName": "timestamp",
+      "ifMulti": "y",
+      "multiServices": [
+        "*app"
+      ],
+      "singleService": ""
     }
   },
   "authentication": {

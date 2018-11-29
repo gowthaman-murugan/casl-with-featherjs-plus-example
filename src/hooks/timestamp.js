@@ -15,8 +15,36 @@ module.exports = function (options = {}) {
     // Get the authenticated user.
     // eslint-disable-next-line no-unused-vars
     const { user } = context.params;
+
+
+    try {
+      if (
+        context.params.provider &&
+        context.path !== 'authentication' 
+        ) {
+        if (context.method === 'create' && context.type === 'before') {
+          Object.assign(context.data, {
+            createdBy: context.params.user._id.toString(),
+            updatedBy: context.params.user._id.toString(),
+            createdAt: new Date()
+          });
+        }
+        if (context.method === 'update' && context.type === 'before') {
+          Object.assign(context.data, {
+            updatedBy: context.params.user._id.toString(),
+            updatedAt: new Date()
+          });
+        }
+      }
+      return context;
+    } catch (err) {
+      log.error(err);
+      throw err;
+    }
+
     // Get the record(s) from context.data (before), context.result.data or context.result (after).
     // getItems always returns an array to simplify your processing.
+
     const records = getItems(context);
 
     /*
