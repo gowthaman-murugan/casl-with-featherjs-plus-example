@@ -1,0 +1,1932 @@
+{
+	"info": {
+		"_postman_id": "1d640d5f-c0df-4c97-93c7-4febdb8e7277",
+		"name": "CASL-FEATHERSJS-PLUS-EXAMPLE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Authentication",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "343da0e3-dfb8-4524-995c-198fe9e28437",
+								"exec": [
+									" var responseJSON;",
+									"try {",
+									"   tests[\"Body contains headers\"] = responseBody.has(\"headers\");",
+									"   responseJSON = JSON.parse(responseBody);",
+									"   console.log(\"...responseJSON..\",responseJSON);",
+									"   if(responseJSON){",
+									"    pm.environment.set(\"accessToken\", responseJSON.accessToken);",
+									"   }",
+									" }",
+									"catch (e) { }"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"strategy\": \"local\",\n  \"email\": \"test@test.com\",\n  \"password\": \"test1234\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/authentication",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"authentication"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "All",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/users",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept, Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Allow",
+									"value": "GET,POST,PUT,PATCH,DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4f8-NfcZJ+uC9whf2dx17WUfIHAjZjw\""
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 22 Nov 2018 13:10:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"total\": 4,\n    \"limit\": 10,\n    \"skip\": 0,\n    \"data\": [\n        {\n            \"_id\": \"5bf677fd7f74f300136233c5\",\n            \"is_active\": true,\n            \"account_form\": \"user\",\n            \"roles\": [\n                \"5bf677fc7f74f300136233c3\"\n            ],\n            \"email\": \"dev@instance.com\",\n            \"first_name\": \"dev\",\n            \"last_name\": \"instance\",\n            \"username\": \"devusers\",\n            \"createdAt\": \"2018-11-22T09:33:49.969Z\",\n            \"updatedAt\": \"2018-11-22T09:33:49.969Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"5bf67c9ec0891b0012a19fce\",\n            \"is_active\": true,\n            \"account_form\": \"user\",\n            \"roles\": [\n                \"5bf67c9dc0891b0012a19fca\"\n            ],\n            \"last_name\": \"cts\",\n            \"first_name\": \"cts\",\n            \"username\": \"cts\",\n            \"email\": \"cts@cts.com\",\n            \"tenant_id\": \"5bf67c9dc0891b0012a19fc9\",\n            \"createdAt\": \"2018-11-22T09:53:34.171Z\",\n            \"updatedAt\": \"2018-11-22T09:53:34.171Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"5bf69bcc3072ad0012b9d264\",\n            \"is_active\": true,\n            \"account_form\": \"user\",\n            \"roles\": [\n                \"5bf69bcb3072ad0012b9d260\"\n            ],\n            \"last_name\": \"tcs\",\n            \"first_name\": \"tcs\",\n            \"username\": \"tcs\",\n            \"email\": \"tcs@tcs.com\",\n            \"tenant_id\": \"5bf69bcb3072ad0012b9d25f\",\n            \"createdAt\": \"2018-11-22T12:06:36.181Z\",\n            \"updatedAt\": \"2018-11-22T12:06:36.181Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"5bf69cc55a349f0012520e41\",\n            \"is_active\": true,\n            \"account_form\": \"user\",\n            \"roles\": [\n                \"5bf69cc45a349f0012520e3d\"\n            ],\n            \"last_name\": \"G-org\",\n            \"first_name\": \"G-org\",\n            \"username\": \"G-org\",\n            \"email\": \"gorg@gorg.com\",\n            \"tenant_id\": \"5bf69cc45a349f0012520e3c\",\n            \"createdAt\": \"2018-11-22T12:10:45.398Z\",\n            \"updatedAt\": \"2018-11-22T12:10:45.398Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "update user",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t     \"_id\": \"5bffdc5ac06a620d0f7572ef\",\n            \"roles\": [\n                \"5bffdaebc06a620d0f7572ec\"\n            ],\n            \"email\": \"tenant_a_admin@test.com\",\n            \"firstName\": \"teanantA\",\n            \"organizationId\": \"5bffd70d7c91d00b4d536490\",\n            \"lastName\": \"teanantA\",\n            \"createdAt\": \"2018-11-29T12:32:26.230Z\",\n            \"updatedAt\": \"2018-11-29T12:32:26.230Z\",\n            \"__v\": 0\n        \n}"
+						},
+						"url": {
+							"raw": "{{url}}/users/5bffdc5ac06a620d0f7572ef",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"5bffdc5ac06a620d0f7572ef"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t    \"_id\": \"5bf677fd7f74f300136233c5\",\n            \"is_active\": true,\n            \"account_form\": \"user\",\n            \"roles\": [\n                \"5bf677fc7f74f300136233c3\"\n            ],\n            \"email\": \"dev@instance.com\",\n            \"first_name\": \"dev-update\",\n            \"last_name\": \"instance\",\n            \"username\": \"devusers\"\n         \n}"
+								},
+								"url": {
+									"raw": "{{url}}/users/5bf677fd7f74f300136233c5",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"5bf677fd7f74f300136233c5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept, Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Allow",
+									"value": "GET,POST,PUT,PATCH,DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "286"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11e-ZpCd/cdRh+iVHcSbb5gtVApMSQs\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 22 Nov 2018 13:12:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"5bf677fd7f74f300136233c5\",\n    \"is_active\": true,\n    \"account_form\": \"user\",\n    \"roles\": [\n        \"5bf677fc7f74f300136233c3\"\n    ],\n    \"email\": \"dev@instance.com\",\n    \"first_name\": \"dev-update\",\n    \"last_name\": \"instance\",\n    \"username\": \"devusers\",\n    \"updatedAt\": \"2018-11-22T13:12:00.516Z\",\n    \"createdAt\": \"2018-11-22T13:12:00.516Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\":\"mohankumar@test.com\",\n  \"email\":\"mohankumar@test.com\",\n  \"first_name\":\"mohan\",\n  \"last_name\":\"kumar\",\n  \"password\":\"superuser\",\n  \"tenant\":\"5bfbc29ccf85d70a093a9ac8\",\n  \"roles\": [\"5bf41281226a1000120e8730\"]\n}"
+						},
+						"url": {
+							"raw": "{{url}}/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t    \"_id\": \"5bf677fd7f74f300136233c5\",\n            \"is_active\": true,\n            \"account_form\": \"user\",\n            \"roles\": [\n                \"5bf677fc7f74f300136233c3\"\n            ],\n            \"email\": \"dev@instance.com\",\n            \"first_name\": \"dev-update\",\n            \"last_name\": \"instance\",\n            \"username\": \"devusers\"\n         \n}"
+								},
+								"url": {
+									"raw": "{{url}}/users/5bf677fd7f74f300136233c5",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"5bf677fd7f74f300136233c5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept, Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Allow",
+									"value": "GET,POST,PUT,PATCH,DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "286"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11e-ZpCd/cdRh+iVHcSbb5gtVApMSQs\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 22 Nov 2018 13:12:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"5bf677fd7f74f300136233c5\",\n    \"is_active\": true,\n    \"account_form\": \"user\",\n    \"roles\": [\n        \"5bf677fc7f74f300136233c3\"\n    ],\n    \"email\": \"dev@instance.com\",\n    \"first_name\": \"dev-update\",\n    \"last_name\": \"instance\",\n    \"username\": \"devusers\",\n    \"updatedAt\": \"2018-11-22T13:12:00.516Z\",\n    \"createdAt\": \"2018-11-22T13:12:00.516Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "By id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/users/5bf3d58d7267aa00117cf0dd",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"5bf3d58d7267aa00117cf0dd"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/users/5bf3d58d7267aa00117cf0dd",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"5bf3d58d7267aa00117cf0dd"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true",
+									"name": "access-control-allow-credentials",
+									"description": ""
+								},
+								{
+									"key": "allow",
+									"value": "GET,POST,PUT,PATCH,DELETE",
+									"name": "allow",
+									"description": ""
+								},
+								{
+									"key": "connection",
+									"value": "keep-alive",
+									"name": "connection",
+									"description": ""
+								},
+								{
+									"key": "content-length",
+									"value": "287",
+									"name": "content-length",
+									"description": ""
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8",
+									"name": "content-type",
+									"description": ""
+								},
+								{
+									"key": "date",
+									"value": "Tue, 20 Nov 2018 10:07:20 GMT",
+									"name": "date",
+									"description": ""
+								},
+								{
+									"key": "etag",
+									"value": "W/\"11f-fUaMJ4+JlcaJJ2PophKGkhppgZY\"",
+									"name": "etag",
+									"description": ""
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=15552000; includeSubDomains",
+									"name": "strict-transport-security",
+									"description": ""
+								},
+								{
+									"key": "vary",
+									"value": "Origin, Accept, Accept-Encoding",
+									"name": "vary",
+									"description": ""
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff",
+									"name": "x-content-type-options",
+									"description": ""
+								},
+								{
+									"key": "x-dns-prefetch-control",
+									"value": "off",
+									"name": "x-dns-prefetch-control",
+									"description": ""
+								},
+								{
+									"key": "x-download-options",
+									"value": "noopen",
+									"name": "x-download-options",
+									"description": ""
+								},
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN",
+									"name": "x-frame-options",
+									"description": ""
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "1; mode=block",
+									"name": "x-xss-protection",
+									"description": ""
+								}
+							],
+							"cookie": [],
+							"body": "{\"_id\":\"5bf3d58d7267aa00117cf0dd\",\"is_active\":true,\"account_form\":\"user\",\"roles\":[\"5bf3d58c7267aa00117cf0db\"],\"email\":\"dev@instance.com\",\"first_name\":\"dev\",\"last_name\":\"instance\",\"username\":\"devusers\",\"createdAt\":\"2018-11-20T09:36:13.732Z\",\"updatedAt\":\"2018-11-20T09:36:13.732Z\",\"__v\":0}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Role",
+			"item": [
+				{
+					"name": "All roles",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/roles",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"roles"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/roles",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"roles"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true",
+									"name": "access-control-allow-credentials",
+									"description": ""
+								},
+								{
+									"key": "allow",
+									"value": "GET,POST,PUT,PATCH,DELETE",
+									"name": "allow",
+									"description": ""
+								},
+								{
+									"key": "connection",
+									"value": "keep-alive",
+									"name": "connection",
+									"description": ""
+								},
+								{
+									"key": "content-length",
+									"value": "197",
+									"name": "content-length",
+									"description": ""
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8",
+									"name": "content-type",
+									"description": ""
+								},
+								{
+									"key": "date",
+									"value": "Tue, 20 Nov 2018 10:08:55 GMT",
+									"name": "date",
+									"description": ""
+								},
+								{
+									"key": "etag",
+									"value": "W/\"c5-2BxAhbfmAQhqLYoMWAVxusCW3+U\"",
+									"name": "etag",
+									"description": ""
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=15552000; includeSubDomains",
+									"name": "strict-transport-security",
+									"description": ""
+								},
+								{
+									"key": "vary",
+									"value": "Origin, Accept, Accept-Encoding",
+									"name": "vary",
+									"description": ""
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff",
+									"name": "x-content-type-options",
+									"description": ""
+								},
+								{
+									"key": "x-dns-prefetch-control",
+									"value": "off",
+									"name": "x-dns-prefetch-control",
+									"description": ""
+								},
+								{
+									"key": "x-download-options",
+									"value": "noopen",
+									"name": "x-download-options",
+									"description": ""
+								},
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN",
+									"name": "x-frame-options",
+									"description": ""
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "1; mode=block",
+									"name": "x-xss-protection",
+									"description": ""
+								}
+							],
+							"cookie": [],
+							"body": "{\"total\":1,\"limit\":10,\"skip\":0,\"data\":[{\"_id\":\"5bf3d58c7267aa00117cf0db\",\"is_active\":true,\"name\":\"superuser\",\"createdAt\":\"2018-11-20T09:36:12.576Z\",\"updatedAt\":\"2018-11-20T09:36:12.576Z\",\"__v\":0}]}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3030/roles",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"roles"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"name": "Access-Control-Allow-Origin",
+									"description": ""
+								},
+								{
+									"key": "Allow",
+									"value": "GET,POST,PUT,PATCH,DELETE",
+									"name": "Allow",
+									"description": ""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": ""
+								},
+								{
+									"key": "Content-Length",
+									"value": "267",
+									"name": "Content-Length",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": ""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Sep 2018 05:59:47 GMT",
+									"name": "Date",
+									"description": ""
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10b-GF8kr3lsN7+BLDNlZS149tAcU8Q\"",
+									"name": "ETag",
+									"description": ""
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains",
+									"name": "Strict-Transport-Security",
+									"description": ""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Accept-Encoding",
+									"name": "Vary",
+									"description": ""
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff",
+									"name": "X-Content-Type-Options",
+									"description": ""
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off",
+									"name": "X-DNS-Prefetch-Control",
+									"description": ""
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen",
+									"name": "X-Download-Options",
+									"description": ""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": ""
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block",
+									"name": "X-XSS-Protection",
+									"description": ""
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Tue Jan 19 2038 08:44:07 GMT+0530 (IST)",
+									"httpOnly": true,
+									"domain": "localhost",
+									"path": "/morfeusadmin",
+									"secure": false,
+									"value": "1B8D425BE5FB8EC7914F863A132BFE2B",
+									"key": "JSESSIONID"
+								}
+							],
+							"body": "{\"total\":1,\"limit\":10,\"skip\":0,\"data\":[{\"_id\":\"5ba08f9dd19e6b15401d18f4\",\"name\":\"admin\",\"description\":\"jjj\",\"isActive\":true,\"isDeleted\":true,\"tenantId\":\"5ba0514d6b36bc1c8fb9a733\",\"createdAt\":\"2018-09-18T05:39:41.028Z\",\"updatedAt\":\"2018-09-18T05:39:41.028Z\",\"__v\":0}]}"
+						}
+					]
+				},
+				{
+					"name": "Role by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/roles/5bf3d58c7267aa00117cf0db",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"roles",
+								"5bf3d58c7267aa00117cf0db"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create role",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n       \"name\": \"user\",\n       \"organizationId\": \"5bffd25af23adc7f75a7a6e5\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/roles",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update role",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n\t   \"is_active\": true,\n       \"name\": \"admin\",\n       \"tenant_id\": \"5bf41281226a1000120e8730\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/roles/5bf4166a226a1000120e8739",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"roles",
+								"5bf4166a226a1000120e8739"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"warning": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\n\t   \"is_active\": true,\n       \"name\": \"admin\",\n       \"tenant_id\": \"5bf41281226a1000120e8730\"\n}"
+								},
+								"url": {
+									"raw": "{{url}}/roles/5bf4166a226a1000120e8739",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"roles",
+										"5bf4166a226a1000120e8739"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true",
+									"name": "access-control-allow-credentials",
+									"description": ""
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop",
+									"name": "access-control-allow-origin",
+									"description": ""
+								},
+								{
+									"key": "allow",
+									"value": "GET,POST,PUT,PATCH,DELETE",
+									"name": "allow",
+									"description": ""
+								},
+								{
+									"key": "connection",
+									"value": "keep-alive",
+									"name": "connection",
+									"description": ""
+								},
+								{
+									"key": "content-length",
+									"value": "183",
+									"name": "content-length",
+									"description": ""
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8",
+									"name": "content-type",
+									"description": ""
+								},
+								{
+									"key": "date",
+									"value": "Tue, 20 Nov 2018 14:14:48 GMT",
+									"name": "date",
+									"description": ""
+								},
+								{
+									"key": "etag",
+									"value": "W/\"b7-AjcXLief314DwR4hha9kO8k72DI\"",
+									"name": "etag",
+									"description": ""
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=15552000; includeSubDomains",
+									"name": "strict-transport-security",
+									"description": ""
+								},
+								{
+									"key": "vary",
+									"value": "Origin, Accept, Accept-Encoding",
+									"name": "vary",
+									"description": ""
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff",
+									"name": "x-content-type-options",
+									"description": ""
+								},
+								{
+									"key": "x-dns-prefetch-control",
+									"value": "off",
+									"name": "x-dns-prefetch-control",
+									"description": ""
+								},
+								{
+									"key": "x-download-options",
+									"value": "noopen",
+									"name": "x-download-options",
+									"description": ""
+								},
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN",
+									"name": "x-frame-options",
+									"description": ""
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "1; mode=block",
+									"name": "x-xss-protection",
+									"description": ""
+								}
+							],
+							"cookie": [],
+							"body": "{\"_id\":\"5bf4166a226a1000120e8739\",\"is_active\":true,\"name\":\"admin\",\"tenant_id\":\"5bf41281226a1000120e8730\",\"updatedAt\":\"2018-11-20T14:14:48.511Z\",\"createdAt\":\"2018-11-20T14:14:48.511Z\"}"
+						}
+					]
+				},
+				{
+					"name": "Update multi roles",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/roles",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"roles"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Organization",
+			"item": [
+				{
+					"name": "Create organizatin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a82db6ca-4f79-47ef-8463-db464b70ae41",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"tenantId\", jsonData._id);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"A-tenant\",\n    \"email\": \"tenantA@tenantA.com\"\n }"
+						},
+						"url": {
+							"raw": "{{url}}/organizations",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"organizations"
+							]
+						},
+						"description": "\n> Create new orgainzation with below properties\n    1. name\n    2. email\n both are\n    * required  \n    * unique \n\n> Once created organization we create defaulr user and roles,\n    1.  Created new role (supe user) with default permission \n    2.  Created  default user with \"email\" which we gave in organization creation and password as \"test1234\", \n\n"
+					},
+					"response": [
+						{
+							"name": "201 Created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\":\"cts\",\n  \"email\":\"cts@cts.com\",\n  \"applicationName\":\"organization\",\n  \"isActive\":true\n}"
+								},
+								"url": {
+									"raw": "{{url}}/organizations",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept, Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Allow",
+									"value": "GET,POST,PUT,PATCH,DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "284"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11c-Pz+kxK00bfvyPZkfG3bfdn9B5xk\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 21 Nov 2018 06:59:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"isActive\": true,\n    \"_id\": \"5bf502616d27070012fc58bc\",\n    \"name\": \"cts\",\n    \"email\": \"cts@cts.com\",\n    \"applicationName\": \"organization\",\n    \"created_by\": \"5bf4f9599bf13000131e128e\",\n    \"updated_by\": \"5bf4f9599bf13000131e128e\",\n    \"createdAt\": \"2018-11-21T06:59:45.884Z\",\n    \"updatedAt\": \"2018-11-21T06:59:45.884Z\",\n    \"__v\": 0\n}"
+						},
+						{
+							"name": "400 Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\":\"cts\",\n  \"applicationName\":\"organization\",\n  \"isActive\":true\n}"
+								},
+								"url": {
+									"raw": "{{url}}/organizations",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Allow",
+									"value": "GET,POST,PUT,PATCH,DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "337"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"151-Xm6ls0/XzAQyP98Im52mLXyvlF4\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 21 Nov 2018 06:57:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"BadRequest\",\n    \"message\": \"organization validation failed: email: Path `email` is required.\",\n    \"code\": 400,\n    \"className\": \"bad-request\",\n    \"errors\": {\n        \"email\": {\n            \"message\": \"Path `email` is required.\",\n            \"name\": \"ValidatorError\",\n            \"properties\": {\n                \"message\": \"Path `email` is required.\",\n                \"type\": \"required\",\n                \"path\": \"email\"\n            },\n            \"kind\": \"required\",\n            \"path\": \"email\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "All  organizatins",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/organizations",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"organizations"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3030/organizations",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"organizations"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"name": "Access-Control-Allow-Origin",
+									"description": ""
+								},
+								{
+									"key": "Allow",
+									"value": "GET,POST,PUT,PATCH,DELETE",
+									"name": "Allow",
+									"description": ""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": ""
+								},
+								{
+									"key": "Content-Length",
+									"value": "256",
+									"name": "Content-Length",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": ""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Sep 2018 06:00:20 GMT",
+									"name": "Date",
+									"description": ""
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"100-UKOZqhBkRruB1uCnsCS8IVEyQQU\"",
+									"name": "ETag",
+									"description": ""
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains",
+									"name": "Strict-Transport-Security",
+									"description": ""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Accept-Encoding",
+									"name": "Vary",
+									"description": ""
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff",
+									"name": "X-Content-Type-Options",
+									"description": ""
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off",
+									"name": "X-DNS-Prefetch-Control",
+									"description": ""
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen",
+									"name": "X-Download-Options",
+									"description": ""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": ""
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block",
+									"name": "X-XSS-Protection",
+									"description": ""
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Tue Jan 19 2038 08:44:07 GMT+0530 (IST)",
+									"httpOnly": true,
+									"domain": "localhost",
+									"path": "/morfeusadmin",
+									"secure": false,
+									"value": "1B8D425BE5FB8EC7914F863A132BFE2B",
+									"key": "JSESSIONID"
+								}
+							],
+							"body": "{\"total\":1,\"limit\":10,\"skip\":0,\"data\":[{\"_id\":\"5ba05aeab569042d7852a7bb\",\"name\":\"ideass2it\",\"email\":\"all@ideas2it.com\",\"applicationName\":\"organization\",\"isActive\":true,\"createdAt\":\"2018-09-18T01:54:50.594Z\",\"updatedAt\":\"2018-09-18T01:54:50.594Z\",\"__v\":0}]}"
+						}
+					]
+				},
+				{
+					"name": "Organizatin by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/organizations/5bf502616d27070012fc58bc",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"organizations",
+								"5bf502616d27070012fc58bc"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/organizations/5bf502616d27070012fc58bc",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"5bf502616d27070012fc58bc"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept, Accept-Encoding"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Allow",
+									"value": "GET,POST,PUT,PATCH,DELETE"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "284"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11c-pfpOD7tdprvYV4rn4m2PeOo8EsA\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 21 Nov 2018 07:25:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"5bf502616d27070012fc58bc\",\n    \"isActive\": true,\n    \"name\": \"cts\",\n    \"email\": \"cts@cts.com\",\n    \"applicationName\": \"organization\",\n    \"created_by\": \"5bf4f9599bf13000131e128e\",\n    \"updated_by\": \"5bf4f9599bf13000131e128e\",\n    \"createdAt\": \"2018-11-21T06:59:45.884Z\",\n    \"updatedAt\": \"2018-11-21T06:59:45.884Z\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Update organizatin",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"_id\": \"5bf502616d27070012fc58bc\",\n    \"isActive\": true,\n    \"name\": \"cts\",\n    \"email\": \"cts@cts.com\",\n    \"applicationName\": \"organization\",\n    \"created_by\": \"5bf4f9599bf13000131e128e\",\n    \"updated_by\": \"5bf4f9599bf13000131e128e\",\n    \"createdAt\": \"2018-11-21T06:59:45.884Z\",\n    \"updatedAt\": \"2018-11-21T06:59:45.884Z\",\n    \"__v\": 0\n}"
+						},
+						"url": {
+							"raw": "{{url}}/organizations/5bf502616d27070012fc58bc",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"organizations",
+								"5bf502616d27070012fc58bc"
+							]
+						},
+						"description": "> Update orgainzation with below properties\n    1. name\n    2. email\n both are\n    * required  \n    * unique \n \n   "
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"_id\": \"5bf41281226a1000120e8730\",\n    \"isActive\": true,\n    \"name\": \"cts\",\n    \"email\": \"cts@cts.com\",\n    \"applicationName\": \"organization\",\n    \"created_by\": \"5bf40065e296ab00120b214d\",\n    \"updated_by\": \"5bf40065e296ab00120b214d\",\n    \"createdAt\": \"2018-11-20T13:56:17.423Z\",\n    \"updatedAt\": \"2018-11-20T13:56:17.423Z\",\n    \"__v\": 0\n}"
+								},
+								"url": {
+									"raw": "{{url}}/organizations/5bf41281226a1000120e8730",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"organizations",
+										"5bf41281226a1000120e8730"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true",
+									"name": "access-control-allow-credentials",
+									"description": ""
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop",
+									"name": "access-control-allow-origin",
+									"description": ""
+								},
+								{
+									"key": "allow",
+									"value": "GET,POST,PUT,PATCH,DELETE",
+									"name": "allow",
+									"description": ""
+								},
+								{
+									"key": "connection",
+									"value": "keep-alive",
+									"name": "connection",
+									"description": ""
+								},
+								{
+									"key": "content-length",
+									"value": "284",
+									"name": "content-length",
+									"description": ""
+								},
+								{
+									"key": "content-type",
+									"value": "application/json; charset=utf-8",
+									"name": "content-type",
+									"description": ""
+								},
+								{
+									"key": "date",
+									"value": "Tue, 20 Nov 2018 14:00:00 GMT",
+									"name": "date",
+									"description": ""
+								},
+								{
+									"key": "etag",
+									"value": "W/\"11c-TwoFLXS0Eu0i/0VeyVzmeMggffs\"",
+									"name": "etag",
+									"description": ""
+								},
+								{
+									"key": "strict-transport-security",
+									"value": "max-age=15552000; includeSubDomains",
+									"name": "strict-transport-security",
+									"description": ""
+								},
+								{
+									"key": "vary",
+									"value": "Origin, Accept, Accept-Encoding",
+									"name": "vary",
+									"description": ""
+								},
+								{
+									"key": "x-content-type-options",
+									"value": "nosniff",
+									"name": "x-content-type-options",
+									"description": ""
+								},
+								{
+									"key": "x-dns-prefetch-control",
+									"value": "off",
+									"name": "x-dns-prefetch-control",
+									"description": ""
+								},
+								{
+									"key": "x-download-options",
+									"value": "noopen",
+									"name": "x-download-options",
+									"description": ""
+								},
+								{
+									"key": "x-frame-options",
+									"value": "SAMEORIGIN",
+									"name": "x-frame-options",
+									"description": ""
+								},
+								{
+									"key": "x-xss-protection",
+									"value": "1; mode=block",
+									"name": "x-xss-protection",
+									"description": ""
+								}
+							],
+							"cookie": [],
+							"body": "{\"_id\":\"5bf41281226a1000120e8730\",\"isActive\":true,\"name\":\"cts\",\"email\":\"cts@cts.com\",\"applicationName\":\"organization\",\"created_by\":\"5bf40065e296ab00120b214d\",\"updated_by\":\"5bf40065e296ab00120b214d\",\"createdAt\":\"2018-11-20T13:56:17.423Z\",\"updatedAt\":\"2018-11-20T13:56:17.423Z\",\"__v\":0}"
+						}
+					]
+				}
+			],
+			"description": "Api for maintaing the Organization ",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a51ca287-b34a-4200-bade-b528c93c34d3",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "f8c6bbd6-d868-4201-95b7-2d335843a019",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Permissions",
+			"item": [
+				{
+					"name": "Create Permissions List",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\n\t\n   \"actions\" : [ \n        \"manage\"\n    ],\n    \"fields\" : [],\n    \"inverted\" : false,\n    \"subject\" : \"all\",\n    \"roleId\" : \"5bffdaebc06a620d0f7572ec\",\n    \"conditions\":{\n    \t\"organizationId\":\"${user.organizationId}\"\n    }\n\t\n},\n{\n   \"actions\" : [ \n       \"read\"\n    ],\n    \"fields\" : [],\n    \"inverted\" : false,\n    \"subject\" : \"shop\",\n    \"roleId\" : \"5bffdaebc06a620d0f7572eb\",\n    \"conditions\":{\n    \t\"organizationId\":\"${user.organizationId}\",\n    \t\"createdBy\":\"${user.createdBy}\"\n    }\n\t\n},\n{\n   \"actions\" : [ \n        \"create\",\"update\",\"read\"\n    ],\n    \"fields\" : [],\n    \"inverted\" : false,\n    \"subject\" : \"products\",\n    \"roleId\" : \"5bffdaebc06a620d0f7572eb\",\n    \"conditions\":{\n    \t\"organizationId\":\"${user.organizationId}\",\n    \t\"createdBy\":\"${user.createdBy}\"\n    }\n\t\n},\n{\n   \"actions\" : [ \n        \"delete\"\n    ],\n    \"fields\" : [],\n    \"inverted\" : true,\n    \"subject\" : \"products\",\n    \"roleId\" : \"5bffdaebc06a620d0f7572eb\",\n    \"conditions\":{\n    \t\"organizationId\":\"${user.organizationId}\",\n    \t\"createdBy\":\"${user.createdBy}\"\n    }\n\t\n},\n\n{\n\t\n   \"actions\" : [ \n        \"manage\"\n    ],\n    \"fields\" : [],\n    \"inverted\" : false,\n    \"subject\" : \"all\",\n    \"roleId\" : \"5bffdaebc06a620d0f7572ee\",\n    \"conditions\":{\n    \t\"organizationId\":\"${user.organizationId}\"\n    }\n\t\n},\n{\n   \"actions\" : [ \n       \"read\"\n    ],\n    \"fields\" : [],\n    \"inverted\" : false,\n    \"subject\" : \"shop\",\n    \"roleId\" : \"5bffdaebc06a620d0f7572ed\",\n    \"conditions\":{\n    \t\"organizationId\":\"${user.organizationId}\",\n    \t\"createdBy\":\"${user.createdBy}\"\n    }\n\t\n},\n{\n   \"actions\" : [ \n        \"create\",\"update\",\"read\"\n    ],\n    \"fields\" : [],\n    \"inverted\" : false,\n    \"subject\" : \"products\",\n    \"roleId\" : \"5bffdaebc06a620d0f7572ed\",\n    \"conditions\":{\n    \t\"organizationId\":\"${user.organizationId}\",\n    \t\"createdBy\":\"${user.createdBy}\"\n    }\n\t\n},\n{\n   \"actions\" : [ \n        \"delete\"\n    ],\n    \"fields\" : [],\n    \"inverted\" : true,\n    \"subject\" : \"products\",\n    \"roleId\" : \"5bffdaebc06a620d0f7572ed\",\n    \"conditions\":{\n    \t\"organizationId\":\"${user.organizationId}\",\n    \t\"createdBy\":\"${user.createdBy}\"\n    }\n\t\n}\n]"
+						},
+						"url": {
+							"raw": "{{url}}/permissions",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"permissions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "201 Created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{accessToken}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[{\n\t\n   \"actions\" : [ \n        \"manage\"\n    ],\n    \"fields\" : [],\n    \"inverted\" : false,\n    \"subject\" : \"all\",\n    \"roleId\" : \"5bffdaebc06a620d0f7572ec\",\n    \"conditions\":{\n    \t\"organizationId\":\"${user.organizationId}\"\n    }\n\t\n},\n{\n   \"actions\" : [ \n       \"read\"\n    ],\n    \"fields\" : [],\n    \"inverted\" : false,\n    \"subject\" : \"shop\",\n    \"roleId\" : \"5bffdaebc06a620d0f7572eb\",\n    \"conditions\":{\n    \t\"organizationId\":\"${user.organizationId}\",\n    \t\"createdBy\":\"${user.createdBy}\"\n    }\n\t\n},\n{\n   \"actions\" : [ \n        \"create\",\"update\",\"read\"\n    ],\n    \"fields\" : [],\n    \"inverted\" : false,\n    \"subject\" : \"products\",\n    \"roleId\" : \"5bffdaebc06a620d0f7572eb\",\n    \"conditions\":{\n    \t\"organizationId\":\"${user.organizationId}\",\n    \t\"createdBy\":\"${user.createdBy}\"\n    }\n\t\n},\n{\n   \"actions\" : [ \n        \"delete\"\n    ],\n    \"fields\" : [],\n    \"inverted\" : true,\n    \"subject\" : \"products\",\n    \"roleId\" : \"5bffdaebc06a620d0f7572eb\",\n    \"conditions\":{\n    \t\"organizationId\":\"${user.organizationId}\",\n    \t\"createdBy\":\"${user.createdBy}\"\n    }\n\t\n},\n\n{\n\t\n   \"actions\" : [ \n        \"manage\"\n    ],\n    \"fields\" : [],\n    \"inverted\" : false,\n    \"subject\" : \"all\",\n    \"roleId\" : \"5bffdaebc06a620d0f7572ee\",\n    \"conditions\":{\n    \t\"organizationId\":\"${user.organizationId}\"\n    }\n\t\n},\n{\n   \"actions\" : [ \n       \"read\"\n    ],\n    \"fields\" : [],\n    \"inverted\" : false,\n    \"subject\" : \"shop\",\n    \"roleId\" : \"5bffdaebc06a620d0f7572ed\",\n    \"conditions\":{\n    \t\"organizationId\":\"${user.organizationId}\",\n    \t\"createdBy\":\"${user.createdBy}\"\n    }\n\t\n},\n{\n   \"actions\" : [ \n        \"create\",\"update\",\"read\"\n    ],\n    \"fields\" : [],\n    \"inverted\" : false,\n    \"subject\" : \"products\",\n    \"roleId\" : \"5bffdaebc06a620d0f7572ed\",\n    \"conditions\":{\n    \t\"organizationId\":\"${user.organizationId}\",\n    \t\"createdBy\":\"${user.createdBy}\"\n    }\n\t\n},\n{\n   \"actions\" : [ \n        \"delete\"\n    ],\n    \"fields\" : [],\n    \"inverted\" : true,\n    \"subject\" : \"products\",\n    \"roleId\" : \"5bffdaebc06a620d0f7572ed\",\n    \"conditions\":{\n    \t\"organizationId\":\"${user.organizationId}\",\n    \t\"createdBy\":\"${user.createdBy}\"\n    }\n\t\n}\n]"
+								},
+								"url": {
+									"raw": "{{url}}/permissions",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"permissions"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Allow",
+									"value": "GET,POST,PUT,PATCH,DELETE"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Accept-Encoding"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9b1-zT+q3RUuJ6bvtnJ/e1dYu0xI6pA\""
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 29 Nov 2018 13:29:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"actions\": [\n            \"manage\"\n        ],\n        \"fields\": [],\n        \"inverted\": false,\n        \"_id\": \"5bffe9b6bc209d11c9145ddf\",\n        \"subject\": \"all\",\n        \"roleId\": \"5bffdaebc06a620d0f7572ec\",\n        \"conditions\": {\n            \"organizationId\": \"${user.organizationId}\"\n        },\n        \"createdAt\": \"2018-11-29T13:29:26.482Z\",\n        \"updatedAt\": \"2018-11-29T13:29:26.482Z\",\n        \"__v\": 0\n    },\n    {\n        \"actions\": [\n            \"read\"\n        ],\n        \"fields\": [],\n        \"inverted\": false,\n        \"_id\": \"5bffe9b6bc209d11c9145de0\",\n        \"subject\": \"shop\",\n        \"roleId\": \"5bffdaebc06a620d0f7572eb\",\n        \"conditions\": {\n            \"organizationId\": \"${user.organizationId}\",\n            \"createdBy\": \"${user.createdBy}\"\n        },\n        \"createdAt\": \"2018-11-29T13:29:26.483Z\",\n        \"updatedAt\": \"2018-11-29T13:29:26.483Z\",\n        \"__v\": 0\n    },\n    {\n        \"actions\": [\n            \"create\",\n            \"update\",\n            \"read\"\n        ],\n        \"fields\": [],\n        \"inverted\": false,\n        \"_id\": \"5bffe9b6bc209d11c9145de1\",\n        \"subject\": \"products\",\n        \"roleId\": \"5bffdaebc06a620d0f7572eb\",\n        \"conditions\": {\n            \"organizationId\": \"${user.organizationId}\",\n            \"createdBy\": \"${user.createdBy}\"\n        },\n        \"createdAt\": \"2018-11-29T13:29:26.483Z\",\n        \"updatedAt\": \"2018-11-29T13:29:26.483Z\",\n        \"__v\": 0\n    },\n    {\n        \"actions\": [\n            \"delete\"\n        ],\n        \"fields\": [],\n        \"inverted\": true,\n        \"_id\": \"5bffe9b6bc209d11c9145de2\",\n        \"subject\": \"products\",\n        \"roleId\": \"5bffdaebc06a620d0f7572eb\",\n        \"conditions\": {\n            \"organizationId\": \"${user.organizationId}\",\n            \"createdBy\": \"${user.createdBy}\"\n        },\n        \"createdAt\": \"2018-11-29T13:29:26.483Z\",\n        \"updatedAt\": \"2018-11-29T13:29:26.483Z\",\n        \"__v\": 0\n    },\n    {\n        \"actions\": [\n            \"manage\"\n        ],\n        \"fields\": [],\n        \"inverted\": false,\n        \"_id\": \"5bffe9b6bc209d11c9145de3\",\n        \"subject\": \"all\",\n        \"roleId\": \"5bffdaebc06a620d0f7572ee\",\n        \"conditions\": {\n            \"organizationId\": \"${user.organizationId}\"\n        },\n        \"createdAt\": \"2018-11-29T13:29:26.483Z\",\n        \"updatedAt\": \"2018-11-29T13:29:26.483Z\",\n        \"__v\": 0\n    },\n    {\n        \"actions\": [\n            \"read\"\n        ],\n        \"fields\": [],\n        \"inverted\": false,\n        \"_id\": \"5bffe9b6bc209d11c9145de4\",\n        \"subject\": \"shop\",\n        \"roleId\": \"5bffdaebc06a620d0f7572ed\",\n        \"conditions\": {\n            \"organizationId\": \"${user.organizationId}\",\n            \"createdBy\": \"${user.createdBy}\"\n        },\n        \"createdAt\": \"2018-11-29T13:29:26.483Z\",\n        \"updatedAt\": \"2018-11-29T13:29:26.483Z\",\n        \"__v\": 0\n    },\n    {\n        \"actions\": [\n            \"create\",\n            \"update\",\n            \"read\"\n        ],\n        \"fields\": [],\n        \"inverted\": false,\n        \"_id\": \"5bffe9b6bc209d11c9145de5\",\n        \"subject\": \"products\",\n        \"roleId\": \"5bffdaebc06a620d0f7572ed\",\n        \"conditions\": {\n            \"organizationId\": \"${user.organizationId}\",\n            \"createdBy\": \"${user.createdBy}\"\n        },\n        \"createdAt\": \"2018-11-29T13:29:26.483Z\",\n        \"updatedAt\": \"2018-11-29T13:29:26.483Z\",\n        \"__v\": 0\n    },\n    {\n        \"actions\": [\n            \"delete\"\n        ],\n        \"fields\": [],\n        \"inverted\": true,\n        \"_id\": \"5bffe9b6bc209d11c9145de6\",\n        \"subject\": \"products\",\n        \"roleId\": \"5bffdaebc06a620d0f7572ed\",\n        \"conditions\": {\n            \"organizationId\": \"${user.organizationId}\",\n            \"createdBy\": \"${user.createdBy}\"\n        },\n        \"createdAt\": \"2018-11-29T13:29:26.483Z\",\n        \"updatedAt\": \"2018-11-29T13:29:26.483Z\",\n        \"__v\": 0\n    }\n]"
+						}
+					]
+				}
+			]
+		}
+	]
+}

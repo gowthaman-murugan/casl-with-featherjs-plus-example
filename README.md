@@ -1,11 +1,13 @@
-# Example of CASL integration in Feathers-plus app
+# Example of CASL integration with Feathers-plus app
  This is an example application which shows how to integrate [CASL](https://stalniy.github.io/casl/).
  
  Application uses `jwt` tokens for authentication.
 
+ Used packRules and unpackRules
+
  Rules are stored in [database](https://stalniy.github.io/casl/abilities/database/integration/2017/07/22/database-integration.html),while user login fetch the rules based on the roles and  help of packRules decreases serialized rules and   [storing the ability](https://stalniy.github.io/casl/abilities/storage/2017/07/22/storing-abilities.html) to JWT  
 
-Permission logic are define in src/hooks/authorize.js.  Rules can be unpacked and  specified for authenticated and anonymous users.
+ Permission logic are define in src/hooks/authorize.js. 
 
 ### Example for abilities 
   
@@ -21,18 +23,7 @@ Permission logic are define in src/hooks/authorize.js.  Rules can be unpacked an
       "subject": "all",
       "roleId": "5bffd7bb66e5320cf0e3dcd6",
      },
-    {
-       "actions": [
-        "manage"
-      ],
-      "fields": [],
-      "inverted": false,
-      "subject": "all",
-      "roleId": "5bffdaebc06a620d0f7572ec",
-      "conditions": {
-        "organizationId": "${user.organizationId}"
-      },
-     },
+     
     {
        "actions": [
         "read"
@@ -63,62 +54,7 @@ Permission logic are define in src/hooks/authorize.js.  Rules can be unpacked an
       "createdAt": "2018-11-29T13:29:26.483Z",
       "updatedAt": "2018-11-29T13:29:26.483Z"
     },
-    {
-       "actions": [
-        "manage"
-      ],
-      "fields": [],
-      "inverted": false,
-      "subject": "all",
-      "roleId": "5bffdaebc06a620d0f7572ee",
-      "conditions": {
-        "organizationId": "${user.organizationId}"
-      },
-     },
-    {
-       "actions": [
-        "read"
-      ],
-      "fields": [],
-      "inverted": false,
-      "subject": "shop",
-      "roleId": "5bffdaebc06a620d0f7572ed",
-      "conditions": {
-        "organizationId": "${user.organizationId}",
-        "createdBy": "${user.createdBy}"
-      },
-     },
-    {
-       "actions": [
-        "delete"
-      ],
-      "fields": [],
-      "inverted": true,
-      "subject": "products",
-      "roleId": "5bffdaebc06a620d0f7572eb",
-      "conditions": {
-        "organizationId": "${user.organizationId}",
-        "createdBy": "${user.createdBy}"
-      },
-     },
-    {
-       "actions": [
-        "create",
-        "update",
-        "read"
-      ],
-      "fields": [],
-      "inverted": false,
-      "subject": "products",
-      "roleId": "5bffdaebc06a620d0f7572ed",
-      "conditions": {
-        "organizationId": "${user.organizationId}",
-        "createdBy": "${user.createdBy}"
-      },
-     },
-
-    {
-       
+    { 
       "actions": [
         "delete"
       ],
@@ -174,6 +110,9 @@ API base URL - `http://localhost:3030/`
 ### API Document - Swagger
 
 Swagger API document URL - `http://localhost:3030/docs`
+ 
+ **Note**: You can also use [postman](https://www.getpostman.com/),I have attached the postman collection json file(CASL-FEATHERSJS-PLUS-EXAMPLE.postman_collection.json) [import your postman](https://www.getpostman.com/docs/v6/postman/collections/data_formats#exporting-and-importing-postman-data) and use. 
+
  
 ## Instruction to login
 1. Create new session
