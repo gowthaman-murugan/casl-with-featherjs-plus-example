@@ -9,7 +9,10 @@ let schema = {
   title: 'Roles',
   description: 'Roles database.',
   // !end
-  // !code: schema_definitions // !end
+  // !code: schema_definitions 
+  fakeRecords: 2,
+
+  // !end
 
   // Required fields.
   required: [
@@ -26,18 +29,21 @@ let schema = {
   // Fields in the model.
   properties: {
     // !code: schema_properties
-    name : {},
+    name : { faker: 'random.arrayElement(["admin","user"])'},
     organizationId:{
       type : 'ID',
-      ref:'organizations'
+      ref:'organizations',
+      faker: { fk: 'organizations:random'}
     },
     createdBy:{
       type : 'ID',
-      ref:'users'
+      ref:'users',
+      faker: { fk: 'users:random'}
     },
     updatedBy:{
       type : 'ID',
-      ref:'users'
+      ref:'users',
+      faker: { fk: 'users:random'}
     }
     // !end
   },

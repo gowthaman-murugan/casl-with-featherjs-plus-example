@@ -7,8 +7,8 @@
     "ts": false
   },
   "app": {
-    "environmentsAllowingSeedData": "",
-    "seedData": false,
+    "environmentsAllowingSeedData": "test",
+    "seedData": true,
     "name": "casl-featherjs-plus-example",
     "description": "Project casl-featherjs-plus-example",
     "src": "src",
@@ -116,7 +116,7 @@
     "mongoose": {
       "database": "mongodb",
       "adapter": "mongoose",
-      "connectionString": "mongodb://localhost:27017/casl_featherjs_plus_example"
+      "connectionString": "mongodb://localhost:27017/example"
     }
   }
 }

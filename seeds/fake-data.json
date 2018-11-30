@@ -1,0 +1,313 @@
+{
+  "users": [
+    {
+      "email": "Manoj.Saini@gmail.com",
+      "firstName": "Bhargavi",
+      "lastName": "Arora",
+      "password": "test1234",
+      "roles": [
+        "5c00e62a3c430b470eaa9012",
+        "5c00e62a3c430b470eaa9011"
+      ],
+      "organizationId": "5c00e62a3c430b470eaa9013",
+      "createdBy": "5c00e62a3c430b470eaa900b",
+      "updatedBy": "5c00e62a3c430b470eaa900f",
+      "_id": "5c00e62a3c430b470eaa900b"
+    },
+    {
+      "email": "Girika.Gill@hotmail.com",
+      "firstName": "Yoginder",
+      "lastName": "Naik",
+      "password": "test1234",
+      "roles": [
+         "5c00e62a3c430b470eaa9012",
+        "5c00e62a3c430b470eaa9011"
+      ],
+      "organizationId": "5c00e62a3c430b470eaa9013",
+      "createdBy": "5c00e62a3c430b470eaa900e",
+      "updatedBy": "5c00e62a3c430b470eaa900c",
+      "_id": "5c00e62a3c430b470eaa900c"
+    },
+    {
+      "email": "Menaka.Bandopadhyay18@hotmail.com",
+      "firstName": "Mohan",
+      "lastName": "Dhawan",
+      "password": "test1234",
+      "roles": [
+        "5c00e62a3c430b470eaa9012",
+        "5c00e62a3c430b470eaa9011",
+        "5c00e62a3c430b470eaa9011"
+      ],
+      "organizationId": "5c00e62a3c430b470eaa9014",
+      "createdBy": "5c00e62a3c430b470eaa900e",
+      "updatedBy": "5c00e62a3c430b470eaa900c",
+      "_id": "5c00e62a3c430b470eaa900d"
+    },
+    {
+      "email": "Balagovind_Embranthiri72@yahoo.co.in",
+      "firstName": "Vasundhara",
+      "lastName": "Shukla",
+      "password": "test1234",
+      "roles": [
+        "5c00e62a3c430b470eaa9011",
+        "5c00e62a3c430b470eaa9012",
+        "5c00e62a3c430b470eaa9012",
+        "5c00e62a3c430b470eaa9012"
+      ],
+      "organizationId": "5c00e62a3c430b470eaa9013",
+      "createdBy": "5c00e62a3c430b470eaa900c",
+      "updatedBy": "5c00e62a3c430b470eaa900c",
+      "_id": "5c00e62a3c430b470eaa900e"
+    },
+    {
+      "email": "Anuraag_Gandhi93@gmail.com",
+      "firstName": "Dhanalakshmi",
+      "lastName": "Agarwal",
+      "password": "test1234",
+      "roles": [
+        "5c00e62a3c430b470eaa9012",
+        "5c00e62a3c430b470eaa9011",
+        "5c00e62a3c430b470eaa9011",
+        "5c00e62a3c430b470eaa9011"
+      ],
+      "organizationId": "5c00e62a3c430b470eaa9014",
+      "createdBy": "5c00e62a3c430b470eaa900c",
+      "updatedBy": "5c00e62a3c430b470eaa900b",
+      "_id": "5c00e62a3c430b470eaa900f"
+    },
+    {
+      "email": "Chandani65@yahoo.co.in",
+      "firstName": "Dhanalakshmi",
+      "lastName": "Patil",
+      "password": "test1234",
+      "roles": [
+        "5c00e62a3c430b470eaa9011",
+        "5c00e62a3c430b470eaa9011",
+        "5c00e62a3c430b470eaa9011",
+        "5c00e62a3c430b470eaa9011",
+        "5c00e62a3c430b470eaa9011"
+      ],
+      "organizationId": "5c00e62a3c430b470eaa9013",
+      "createdBy": "5c00e62a3c430b470eaa900c",
+      "updatedBy": "5c00e62a3c430b470eaa900b",
+      "_id": "5c00e62a3c430b470eaa9010"
+    }
+  ],
+  "roles": [
+    {
+      "name": "undefined",
+      "organizationId": "5c00e62a3c430b470eaa9013",
+      "createdBy": "5c00e62a3c430b470eaa9010",
+      "updatedBy": "5c00e62a3c430b470eaa900c",
+      "_id": "5c00e62a3c430b470eaa9011"
+    },
+    {
+      "name": "undefined",
+      "organizationId": "5c00e62a3c430b470eaa9014",
+      "createdBy": "5c00e62a3c430b470eaa900e",
+      "updatedBy": "5c00e62a3c430b470eaa9010",
+      "_id": "5c00e62a3c430b470eaa9012"
+    }
+  ],
+  "organizations": [
+    {
+      "name": "Jain, Gandhi an",
+      "email": "Anaadi.Tagore@gmail.com",
+      "createdBy": "5c00e62a3c430b470eaa900e",
+      "updatedBy": "5c00e62a3c430b470eaa9010",
+      "_id": "5c00e62a3c430b470eaa9013"
+    },
+    {
+      "name": "Guneta - Patel",
+      "email": "Ambar.Pothuvaal90@gmail.com",
+      "createdBy": "5c00e62a3c430b470eaa900d",
+      "updatedBy": "5c00e62a3c430b470eaa900e",
+      "_id": "5c00e62a3c430b470eaa9014"
+    }
+  ],
+  "permissions": [
+    {
+      "actions": [
+        "non culpa ad Excepteur veniam",
+        "minim anim n",
+        "Duis fugiat d",
+        "velit dolor sint enim"
+      ],
+      "subject": "ut labore dolore in nisi",
+      "roleId": "nulla Lorem",
+      "conditions": {},
+      "fields": [
+        "Ut anim amet ex sint",
+        "cillum sint nulla sunt qui",
+        "commodo consequat",
+        "ut consectetur cillum ad amet"
+      ],
+      "inverted": false,
+      "reason": "occaecat id eu",
+      "organizationId": "Duis et",
+      "createdBy": "sit est",
+      "updatedBy": "Duis culpa nostrud Lorem",
+      "_id": "5c00e62a3c430b470eaa9015"
+    },
+    {
+      "actions": [
+        "ut ull",
+        "a"
+      ],
+      "subject": "non",
+      "roleId": "dolor non pariatur in",
+      "conditions": {},
+      "fields": [
+        "laboris id",
+        "consequat incididunt sit",
+        "sunt amet",
+        "fugiat magna",
+        "qui Ut esse nisi"
+      ],
+      "inverted": true,
+      "reason": "esse ",
+      "organizationId": "culpa commodo mollit ut",
+      "createdBy": "ut qui sint",
+      "updatedBy": "adipisicing cupidatat",
+      "_id": "5c00e62a3c430b470eaa9016"
+    },
+    {
+      "actions": [
+        "quis fugiat ut ullamco",
+        "minim sit"
+      ],
+      "subject": "dolor exercitation adipisicing velit",
+      "roleId": "do dolore in ut",
+      "conditions": {},
+      "fields": [
+        "sint cupidatat eu amet",
+        "culpa commodo velit qui in"
+      ],
+      "inverted": true,
+      "reason": "dolore sed",
+      "organizationId": "dol",
+      "createdBy": "in quis do ea mollit",
+      "updatedBy": "aliquip Duis esse e",
+      "_id": "5c00e62a3c430b470eaa9017"
+    },
+    {
+      "actions": [
+        "Excepteur do",
+        "aliqua est ipsum qui cillum",
+        "Duis Ut",
+        "magna in sunt"
+      ],
+      "subject": "quis",
+      "roleId": "qui",
+      "conditions": {},
+      "fields": [
+        "et",
+        "adipisicing fugiat"
+      ],
+      "inverted": false,
+      "reason": "cupidatat consectetur sed",
+      "organizationId": "sed ullamco",
+      "createdBy": "officia sit eu aute",
+      "updatedBy": "mollit sit id sunt veniam",
+      "_id": "5c00e62a3c430b470eaa9018"
+    },
+    {
+      "actions": [
+        "deserunt aliquip ullamco",
+        "dolore non ipsum tempor",
+        "laborum nulla id ipsum",
+        "culpa in Lorem Ut occaecat",
+        "laborum adipisicin"
+      ],
+      "subject": "in incididunt Excepteur",
+      "roleId": "est in",
+      "conditions": {},
+      "fields": [
+        "cupidatat",
+        "Lorem exercitation dolor ea",
+        "nulla sunt commodo",
+        "do fugiat"
+      ],
+      "inverted": false,
+      "reason": "non",
+      "organizationId": "mollit tempor dolor non quis",
+      "createdBy": "velit amet",
+      "updatedBy": "velit tempor cupidatat do",
+      "_id": "5c00e62a3c430b470eaa9019"
+    }
+  ],
+  "shops": [
+    {
+      "name": "aliquip anim",
+      "organizationId": "officia sed sit",
+      "createdBy": "culpa anim nisi elit ex",
+      "updatedBy": "proident est",
+      "_id": "5c00e62a3c430b470eaa901a"
+    },
+    {
+      "name": "no",
+      "organizationId": "qui laboris aliqua",
+      "createdBy": "pariatur voluptate ea sit minim",
+      "updatedBy": "Duis tempor dolore",
+      "_id": "5c00e62a3c430b470eaa901b"
+    },
+    {
+      "name": "dolore qui nulla sed",
+      "organizationId": "Lorem anim",
+      "createdBy": "cupidatat",
+      "updatedBy": "sit cupidatat",
+      "_id": "5c00e62a3c430b470eaa901c"
+    },
+    {
+      "name": "aliqua anim ex voluptate",
+      "organizationId": "dolor id consectetur qui",
+      "createdBy": "laborum consectetur cillum",
+      "updatedBy": "aute enim",
+      "_id": "5c00e62a3c430b470eaa901d"
+    },
+    {
+      "name": "laborum aliqua veniam",
+      "organizationId": "minim dolore dolor",
+      "createdBy": "dolore n",
+      "updatedBy": "occaecat Duis sit mollit",
+      "_id": "5c00e62a3c430b470eaa901e"
+    }
+  ],
+  "products": [
+    {
+      "name": "qui ea ",
+      "organizationId": "incididunt cillum voluptate ullamco",
+      "createdBy": "incididunt nostrud nulla",
+      "updatedBy": "incididunt elit",
+      "_id": "5c00e62a3c430b470eaa901f"
+    },
+    {
+      "name": "non",
+      "organizationId": "nostrud sunt",
+      "createdBy": "non proident fugiat",
+      "updatedBy": "cupidatat",
+      "_id": "5c00e62a3c430b470eaa9020"
+    },
+    {
+      "name": "ut ",
+      "organizationId": "tempor ipsum in",
+      "createdBy": "in ",
+      "updatedBy": "eu et eiusmod dolore ut",
+      "_id": "5c00e62a3c430b470eaa9021"
+    },
+    {
+      "name": "cupidatat aliqua",
+      "organizationId": "quis id",
+      "createdBy": "",
+      "updatedBy": "proident dolore officia elit",
+      "_id": "5c00e62a3c430b470eaa9022"
+    },
+    {
+      "name": "esse vel",
+      "organizationId": "magna veniam incididunt nostrud ut",
+      "createdBy": "d",
+      "updatedBy": "reprehenderit",
+      "_id": "5c00e62a3c430b470eaa9023"
+    }
+  ]
+}

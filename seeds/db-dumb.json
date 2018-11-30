@@ -1,6 +1,5 @@
 {
   "users": [
-
     {
       "_id": "5bffd7bc66e5320cf0e3dcd7",
       "roles": [
@@ -50,9 +49,9 @@
       ],
       "password": "test1234",
       "email": "tenant_b_admin@test.com",
-      "firstName": "teanantA",
+      "firstName": "teanantB",
       "organizationId": "5bffd7207c91d00b4d536491",
-      "lastName": "teanantA",
+      "lastName": "teanantB",
       "createdAt": "2018-11-29T12:32:26.230Z",
       "updatedAt": "2018-11-30T06:07:03.604Z",
       "createdBy": "5bffd7bc66e5320cf0e3dcd7",
@@ -65,9 +64,9 @@
       ],
       "password": "test1234",
       "email": "tenant_b_user@test.com",
-      "firstName": "teanantA",
+      "firstName": "teanantB",
       "organizationId": "5bffd7207c91d00b4d536491",
-      "lastName": "teanantA",
+      "lastName": "teanantB",
       "createdAt": "2018-11-29T12:32:26.231Z",
       "updatedAt": "2018-11-30T06:07:37.267Z",
       "createdBy": "5bffd7bc66e5320cf0e3dcd7",

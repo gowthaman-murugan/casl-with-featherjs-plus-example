@@ -9,7 +9,10 @@ let schema = {
   title: 'Organizations',
   description: 'Organizations database.',
   // !end
-  // !code: schema_definitions // !end
+  // !code: schema_definitions 
+  fakeRecords: 2,
+
+  // !end
 
   // Required fields.
   required: [
@@ -29,15 +32,17 @@ let schema = {
   // Fields in the model.
   properties: {
     // !code: schema_properties
-    name: {},
-    email : {},
+    email: { minLength: 8, maxLength: 40, faker: 'internet.email' },
+    name: { minLength: 2, maxLength: 15, faker: 'company.companyName' },
     createdBy:{
       type : 'ID',
-      ref:'users'
+      ref:'users',
+      faker: { fk: 'users:random'}
     },
     updatedBy:{
       type : 'ID',
-      ref:'users'
+      ref:'users',
+      faker: { fk: 'users:random'}
     }
     // !end
   },

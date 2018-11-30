@@ -8,7 +8,7 @@
   },
   "tests": {
     "environmentsAllowingSeedData": [
-      ""
+      "test"
     ]
   },
   "authentication": {
@@ -35,5 +35,5 @@
       "passwordField": "password"
     }
   },
-  "mongodb": "mongodb://localhost:27017/example"
+  "mongodb": "mongodb://localhost:27017/example2"
 }

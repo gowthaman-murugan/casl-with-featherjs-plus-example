@@ -9,7 +9,10 @@ let schema = {
   title: 'Users',
   description: 'Users database.',
   // !end
-  // !code: schema_definitions // !end
+  // !code: schema_definitions
+  fakeRecords: 6,
+
+  // !end
 
   // Required fields.
   required: [
@@ -29,28 +32,32 @@ let schema = {
   // Fields in the model.
   properties: {
     // !code: schema_properties
-    email: {},
-    firstName: {},
-    lastName: {},
-    password: {},
+    email:     { minLength: 8, maxLength: 40, faker: 'internet.email' },
+    firstName: { minLength: 2, maxLength: 15, faker: 'name.firstName' },
+    lastName:  { minLength: 2, maxLength: 30, faker: 'name.lastName' },
+    password:  { faker: 'user.password' },
     roles: { 
       type: 'array',
       items: {
         type : 'ID',
-        ref:'roles'
+        ref:'roles',
+        faker: { fk: 'roles:random' }
       }
     },
     organizationId:{
       type : 'ID',
-      ref:'organizations'
+      ref:'organizations',
+      faker: { fk: 'organizations:random'}
     },
     createdBy:{
       type : 'ID',
-      ref:'users'
+      ref:'users',
+      faker: { fk: 'users:random'}
     },
     updatedBy:{
       type : 'ID',
-      ref:'users'
+      ref:'users',
+      faker: { fk: 'users:random'}
     }
     // !end
   },

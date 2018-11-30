@@ -29,17 +29,18 @@
   },
   "scripts": {
     "test": "npm run eslint && npm run mocha",
-    "test:all": "npm run eslint && NODE_ENV= npm run mocha",
+    "test:all": "npm run eslint && NODE_ENV=test npm run mocha",
     "eslint": "eslint src/. test/. --config .eslintrc.json",
     "dev": "nodemon src/",
     "start": "node src/",
-    "start:seed": "NODE_ENV= node src/ --seed",
+    "start:seed": "NODE_ENV=test node src/ --seed",
     "mocha": "mocha test/ --recursive --exit --timeout 10000",
     "seed": "node scripts/register-user.js"
   },
   "dependencies": {
     "@casl/ability": "^2.5.1",
     "@casl/mongoose": "^2.2.2",
+    "@feathers-plus/test-utils": "^0.3.5",
     "@feathersjs/authentication": "^2.1.13",
     "@feathersjs/authentication-jwt": "^2.0.7",
     "@feathersjs/authentication-local": "^1.2.7",

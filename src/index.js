@@ -4,6 +4,7 @@
 // !code: preface // !end
 const logger = require('./logger');
 const app = require('./app');
+const seedData = require('./seed-data');
 // !code: imports // !end
 // !code: init // !end
 
@@ -23,6 +24,7 @@ server.on('listening', async () => {
   logger.info('Feathers application started on http://%s:%d', app.get('host'), port);
   // !end
   // !code: listening // !end
+  await seedData(app);
   // !code: listening1 // !end
 });
 
