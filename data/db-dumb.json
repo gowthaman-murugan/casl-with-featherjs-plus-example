@@ -1,0 +1,271 @@
+{
+  "users": [
+
+    {
+      "_id": "5bffd7bc66e5320cf0e3dcd7",
+      "roles": [
+        "5bffd7bb66e5320cf0e3dcd6"
+      ],
+      "email": "test@test.com",
+      "firstName": "test",
+      "lastName": "test",
+      "password": "test1234",
+      "createdAt": "2018-11-29T12:12:44.268Z",
+      "updatedAt": "2018-11-29T12:12:44.268Z"
+    },
+    {
+      "_id": "5bffdc5ac06a620d0f7572ef",
+      "roles": [
+        "5bffdaebc06a620d0f7572ec"
+      ],
+      "email": "tenant_a_admin@test.com",
+      "firstName": "teanantA",
+      "organizationId": "5bffd70d7c91d00b4d536490",
+      "password": "test1234",
+      "lastName": "teanantA",
+      "createdAt": "2018-11-29T12:32:26.230Z",
+      "updatedAt": "2018-11-30T06:05:44.596Z",
+      "createdBy": "5bffd7bc66e5320cf0e3dcd7",
+      "updatedBy": "5bffd7bc66e5320cf0e3dcd7"
+    },
+    {
+      "_id": "5bffdc5ac06a620d0f7572f0",
+      "roles": [
+        "5bffdaebc06a620d0f7572eb"
+      ],
+      "email": "tenant_a_user@test.com",
+      "firstName": "teanantA",
+      "organizationId": "5bffd70d7c91d00b4d536490",
+      "password": "test1234",
+      "lastName": "teanantA",
+      "createdAt": "2018-11-29T12:32:26.230Z",
+      "updatedAt": "2018-11-30T06:06:28.761Z",
+      "createdBy": "5bffd7bc66e5320cf0e3dcd7",
+      "updatedBy": "5bffd7bc66e5320cf0e3dcd7"
+    },
+    {
+      "_id": "5bffdc5ac06a620d0f7572f1",
+      "roles": [
+        "5bffdaebc06a620d0f7572ee"
+      ],
+      "password": "test1234",
+      "email": "tenant_b_admin@test.com",
+      "firstName": "teanantA",
+      "organizationId": "5bffd7207c91d00b4d536491",
+      "lastName": "teanantA",
+      "createdAt": "2018-11-29T12:32:26.230Z",
+      "updatedAt": "2018-11-30T06:07:03.604Z",
+      "createdBy": "5bffd7bc66e5320cf0e3dcd7",
+      "updatedBy": "5bffd7bc66e5320cf0e3dcd7"
+    },
+    {
+      "_id": "5bffdc5ac06a620d0f7572f2",
+      "roles": [
+        "5bffdaebc06a620d0f7572ed"
+      ],
+      "password": "test1234",
+      "email": "tenant_b_user@test.com",
+      "firstName": "teanantA",
+      "organizationId": "5bffd7207c91d00b4d536491",
+      "lastName": "teanantA",
+      "createdAt": "2018-11-29T12:32:26.231Z",
+      "updatedAt": "2018-11-30T06:07:37.267Z",
+      "createdBy": "5bffd7bc66e5320cf0e3dcd7",
+      "updatedBy": "5bffd7bc66e5320cf0e3dcd7"
+    }
+  ],
+  "roles": [{
+      "_id": "5bffd7bb66e5320cf0e3dcd6",
+      "name": "superuser",
+      "createdAt": "2018-11-29T12:12:43.073Z",
+      "updatedAt": "2018-11-29T12:12:43.073Z"
+    },
+    {
+      "_id": "5bffdaebc06a620d0f7572eb",
+      "name": "user",
+      "organizationId": "5bffd70d7c91d00b4d536490",
+      "createdAt": "2018-11-29T12:26:19.475Z",
+      "updatedAt": "2018-11-29T12:26:19.475Z"
+    },
+    {
+      "_id": "5bffdaebc06a620d0f7572ec",
+      "name": "admin",
+      "organizationId": "5bffd70d7c91d00b4d536490",
+      "createdAt": "2018-11-29T12:26:19.475Z",
+      "updatedAt": "2018-11-29T12:26:19.475Z"
+    },
+    {
+      "_id": "5bffdaebc06a620d0f7572ed",
+      "name": "user",
+      "organizationId": "5bffd7207c91d00b4d536491",
+      "createdAt": "2018-11-29T12:26:19.475Z",
+      "updatedAt": "2018-11-29T12:26:19.475Z"
+    },
+    {
+      "_id": "5bffdaebc06a620d0f7572ee",
+      "name": "admin",
+      "organizationId": "5bffd7207c91d00b4d536491",
+      "createdAt": "2018-11-29T12:26:19.475Z",
+      "updatedAt": "2018-11-29T12:26:19.475Z"
+    }
+  ],
+  "permissions": [{
+      "_id": "5bffde71bc209d11c9145dde",
+      "actions": [
+        "manage"
+      ],
+      "fields": [],
+      "inverted": false,
+      "subject": "all",
+      "roleId": "5bffd7bb66e5320cf0e3dcd6",
+      "createdAt": "2018-11-29T12:41:21.282Z",
+      "updatedAt": "2018-11-29T12:41:21.282Z"
+    },
+    {
+      "_id": "5bffe9b6bc209d11c9145ddf",
+      "actions": [
+        "manage"
+      ],
+      "fields": [],
+      "inverted": false,
+      "subject": "all",
+      "roleId": "5bffdaebc06a620d0f7572ec",
+      "conditions": {
+        "organizationId": "${user.organizationId}"
+      },
+      "createdAt": "2018-11-29T13:29:26.482Z",
+      "updatedAt": "2018-11-29T13:29:26.482Z"
+    },
+    {
+      "_id": "5bffe9b6bc209d11c9145de0",
+      "actions": [
+        "read"
+      ],
+      "fields": [],
+      "inverted": false,
+      "subject": "shop",
+      "roleId": "5bffdaebc06a620d0f7572eb",
+      "conditions": {
+        "organizationId": "${user.organizationId}",
+        "createdBy": "${user.createdBy}"
+      },
+      "createdAt": "2018-11-29T13:29:26.483Z",
+      "updatedAt": "2018-11-29T13:29:26.483Z"
+    },
+    {
+      "_id": "5bffe9b6bc209d11c9145de1",
+      "actions": [
+        "create",
+        "update",
+        "read"
+      ],
+      "fields": [],
+      "inverted": false,
+      "subject": "products",
+      "roleId": "5bffdaebc06a620d0f7572eb",
+      "conditions": {
+        "organizationId": "${user.organizationId}",
+        "createdBy": "${user.createdBy}"
+      },
+      "createdAt": "2018-11-29T13:29:26.483Z",
+      "updatedAt": "2018-11-29T13:29:26.483Z"
+    },
+    {
+      "_id": "5bffe9b6bc209d11c9145de3",
+      "actions": [
+        "manage"
+      ],
+      "fields": [],
+      "inverted": false,
+      "subject": "all",
+      "roleId": "5bffdaebc06a620d0f7572ee",
+      "conditions": {
+        "organizationId": "${user.organizationId}"
+      },
+      "createdAt": "2018-11-29T13:29:26.483Z",
+      "updatedAt": "2018-11-29T13:29:26.483Z"
+    },
+    {
+      "_id": "5bffe9b6bc209d11c9145de4",
+      "actions": [
+        "read"
+      ],
+      "fields": [],
+      "inverted": false,
+      "subject": "shop",
+      "roleId": "5bffdaebc06a620d0f7572ed",
+      "conditions": {
+        "organizationId": "${user.organizationId}",
+        "createdBy": "${user.createdBy}"
+      },
+      "createdAt": "2018-11-29T13:29:26.483Z",
+      "updatedAt": "2018-11-29T13:29:26.483Z"
+    },
+    {
+      "_id": "5bffe9b6bc209d11c9145de2",
+      "actions": [
+        "delete"
+      ],
+      "fields": [],
+      "inverted": true,
+      "subject": "products",
+      "roleId": "5bffdaebc06a620d0f7572eb",
+      "conditions": {
+        "organizationId": "${user.organizationId}",
+        "createdBy": "${user.createdBy}"
+      },
+      "createdAt": "2018-11-29T13:29:26.483Z",
+      "updatedAt": "2018-11-29T13:29:26.483Z"
+    },
+    {
+      "_id": "5bffe9b6bc209d11c9145de5",
+      "actions": [
+        "create",
+        "update",
+        "read"
+      ],
+      "fields": [],
+      "inverted": false,
+      "subject": "products",
+      "roleId": "5bffdaebc06a620d0f7572ed",
+      "conditions": {
+        "organizationId": "${user.organizationId}",
+        "createdBy": "${user.createdBy}"
+      },
+      "createdAt": "2018-11-29T13:29:26.483Z",
+      "updatedAt": "2018-11-29T13:29:26.483Z"
+    },
+
+    {
+      "_id": "5bffe9b6bc209d11c9145de6",
+      "actions": [
+        "delete"
+      ],
+      "fields": [],
+      "inverted": true,
+      "subject": "products",
+      "roleId": "5bffdaebc06a620d0f7572ed",
+      "conditions": {
+        "organizationId": "${user.organizationId}",
+        "createdBy": "${user.createdBy}"
+      },
+      "createdAt": "2018-11-29T13:29:26.483Z",
+      "updatedAt": "2018-11-29T13:29:26.483Z"
+    }
+  ],
+  "organizations": [{
+      "_id": "5bffd806c06a620d0f7572e1",
+      "name": "A-tenant",
+      "email": "tenantA@tenantA.com",
+      "createdAt": "2018-11-29T12:13:58.601Z",
+      "updatedAt": "2018-11-29T12:13:58.601Z"
+    },
+    {
+      "_id": "5bffd806c06a620d0f7572e2",
+      "name": "B-tenant",
+      "email": "tenantB@tenantB.com",
+      "createdAt": "2018-11-29T12:13:58.602Z",
+      "updatedAt": "2018-11-29T12:13:58.602Z"
+    }
+  ]
+}

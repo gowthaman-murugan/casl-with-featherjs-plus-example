@@ -15,8 +15,6 @@ module.exports = function (options = {}) {
     // Get the authenticated user.
     // eslint-disable-next-line no-unused-vars
     const { user } = context.params;
-
-
     try {
       if (
         context.params.provider &&
@@ -31,6 +29,7 @@ module.exports = function (options = {}) {
         }
         if (context.method === 'update' && context.type === 'before') {
           Object.assign(context.data, {
+            createdBy: context.params.user._id.toString(),
             updatedBy: context.params.user._id.toString(),
             updatedAt: new Date()
           });

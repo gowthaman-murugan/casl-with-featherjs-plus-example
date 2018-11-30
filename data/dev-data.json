@@ -1,0 +1,12 @@
+{
+    "user": {
+      "email": "test@test.com",
+      "firstName": "test",
+      "lastName": "test",
+      "password": "test1234"
+    },
+    "role": {
+      "name": "superuser"
+    }
+  }
+  

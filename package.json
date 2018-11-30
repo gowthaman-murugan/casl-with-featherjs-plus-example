@@ -49,6 +49,7 @@
     "feathers-mongoose": "^6.3.0",
     "feathers-swagger": "^0.7.2",
     "helmet": "^3.15.0",
+    "lodash.get": "^4.4.2",
     "lodash.merge": "^4.6.1",
     "mongodb-core": "^3.1.9",
     "mongoose": "^5.3.14",

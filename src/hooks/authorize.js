@@ -13,8 +13,8 @@ const { toMongoQuery } = require('@casl/mongoose')
 const { Forbidden } = require('@feathersjs/errors');
 const TYPE_KEY = Symbol.for('type')
 const { ExtractJwt } = require('@feathersjs/authentication-jwt');
-
 const { checkContext, getItems, replaceItems } = require('feathers-hooks-common');
+const getByPath = require('lodash.get')
  
 Ability.addAlias('update', 'patch')
 Ability.addAlias('read', ['get', 'find'])
@@ -25,7 +25,7 @@ Ability.addAlias('delete', 'remove')
  * @description
  *   -This method pass the template and interpolates
  * @function
- * @memberof module:Util.Ability
+ * @memberof module:Hook.Authorize
  * @param {string} template  - permission template
  * @param {string} variables - for interpolates
  * @return {object} - permission object
@@ -39,9 +39,12 @@ const parseJSON = (template, variables) => {
     if (rawValue[0] !== '$') {
       return rawValue;
     }
-
+     console.log("......rawValue",rawValue);
     const name = rawValue.slice(2, -1);
-    const value = util.getByPath(variables, name);
+    console.log("......name",name);
+    console.log("............ddd..",variables);
+
+    const value = getByPath(variables, name);
 
     if (typeof value === 'undefined') {
       throw new ReferenceError(`Variable ${name} is not defined`);
@@ -55,7 +58,7 @@ const parseJSON = (template, variables) => {
  * @description
  *   -To get subject name(service Name)
  * @function
- * @memberof module:Util.Ability
+ * @memberof module:Hook.Authorize
  * @param {*} subject  - get subject name
  * @author Gowthaman Murugan
  */
@@ -72,7 +75,7 @@ function subjectName(subject) {
  *   - Current user object is passed into the function, so the permissions can be modified based on any user attributes.
  *   - UnpackRules and iterate permissions
  * @function
- * @memberof module:Util.Ability
+ * @memberof module:Hook.Authorize
  * @param {object} user  - loggedin user object
  * @param {array} permissions  - permission
  * @author Gowthaman Murugan
@@ -81,7 +84,7 @@ function subjectName(subject) {
 
 function defineAbilitiesFor(user,permissions) {
   const template = unpackRules(permissions);
-  return new Ability(parseJSON(JSON.stringify(template), { user }))
+  return new Ability(parseJSON(JSON.stringify(template),{user}),subjectName)
 }
 
 // function defineAbilitiesFor(user,permissions) {
@@ -104,7 +107,7 @@ function defineAbilitiesFor(user,permissions) {
  * @description
  *   - its helper function to check query value null are not
  * @function
- * @memberof module:Util.Ability
+ * @memberof module:Hook.Authorize
  * @param {object} subject  - some object
  * @return {object} - json object
  */
