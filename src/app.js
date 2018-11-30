@@ -1,3 +1,8 @@
+/**
+ * @namespace app
+ * @memberof  module:APP
+ *
+ */
 
 // Configure Feathers app. (Can be re-generated.)
 // !code: preface // !end

@@ -1,3 +1,7 @@
+/**
+ * @namespace Products
+ * @memberof module:APP.Service
+ */
 
 // Initializes the `products` service on path `/products`. (Can be re-generated.)
 const createService = require('feathers-mongoose');

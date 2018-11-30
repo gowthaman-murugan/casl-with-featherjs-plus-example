@@ -35,5 +35,5 @@
       "passwordField": "password"
     }
   },
-  "mongodb": "mongodb://localhost:27017/example2"
+  "mongodb": "mongodb://localhost:27017/example"
 }

@@ -37,13 +37,12 @@ let moduleExports = function (app) {
     context.params.payload = context.params.payload || {};
     const user = await getLoggedInUser(context);
     const permissionList = await getUserPermissions(user.roles, context);
+    const permissions = packRules(permissionList.data || []);
     // merge in a `tenant` property
-    console.log("....permission",permissionList);
     Object.assign(context.params.payload, {
       organizationId: user.organizationId,
-      permissions: packRules(permissionList.data || [])
+      permissions: permissions
     });
-
     return context;
   };
   // !end

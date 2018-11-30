@@ -1,5 +1,5 @@
 {
-  "mongodb": "mongodb://localhost:27017/example2",
+  "mongodb": "mongodb://localhost:27017/example-test",
   "mysql": "mysql://root:@no-connection-string-config-test",
   "nedb": "nedb://no-connection-string-config-test",
   "postgres": "postgres://postgres:@no-connection-string-config-test",

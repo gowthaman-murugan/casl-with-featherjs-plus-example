@@ -1,4 +1,7 @@
-
+/**
+ * @namespace Users
+ * @memberof module:APP.Service
+ */
 // Initializes the `users` service on path `/users`. (Can be re-generated.)
 const createService = require('feathers-mongoose');
 const createModel = require('../../models/users.model');

@@ -1,3 +1,6 @@
+/**
+ * @module Hook
+ */
 
 // Use this hook to manipulate incoming or outgoing data.
 // For more information on hooks see: http://docs.feathersjs.com/api/hooks.html
@@ -19,6 +22,12 @@ const getByPath = require('lodash.get')
 Ability.addAlias('update', 'patch')
 Ability.addAlias('read', ['get', 'find'])
 Ability.addAlias('delete', 'remove')
+
+/**
+ * @namespace Authorize
+ * @memberof module:Hook
+ */
+
 
 /**
  * @name parseJSON
@@ -211,7 +220,7 @@ module.exports = function (options = {}) {
     // getItems always returns an array to simplify your processing.
     const records = getItems(context);
 
-    /*
+    /*https://github.com/Marak/faker.js/wiki/Basic-Random-Data
     Modify records and/or context.
      */
 

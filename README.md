@@ -1,52 +1,217 @@
-# casl-featherjs-plus-example
+# Example of CASL integration in Feathers-plus app
+ This is an example application which shows how to integrate [CASL](https://stalniy.github.io/casl/).
+ 
+ Application uses `jwt` tokens for authentication.
 
-> Project casl-featherjs-plus-example
+ Rules are stored in [database](https://stalniy.github.io/casl/abilities/database/integration/2017/07/22/database-integration.html),while user login fetch the rules based on the roles and  help of packRules decreases serialized rules and   [storing the ability](https://stalniy.github.io/casl/abilities/storage/2017/07/22/storing-abilities.html) to JWT  
 
-## About
+Permission logic are define in src/hooks/authorize.js.  Rules can be unpacked and  specified for authenticated and anonymous users.
 
-This project uses [FeathersJS](http://feathersjs.com). An open source web framework for building modern real-time applications.
+### Example for abilities 
+  
+  please refer the folder seed/db-dump.json
+ 
+```
+  "permissions": [{
+       "actions": [
+        "manage"
+      ],
+      "fields": [],
+      "inverted": false,
+      "subject": "all",
+      "roleId": "5bffd7bb66e5320cf0e3dcd6",
+     },
+    {
+       "actions": [
+        "manage"
+      ],
+      "fields": [],
+      "inverted": false,
+      "subject": "all",
+      "roleId": "5bffdaebc06a620d0f7572ec",
+      "conditions": {
+        "organizationId": "${user.organizationId}"
+      },
+     },
+    {
+       "actions": [
+        "read"
+      ],
+      "fields": [],
+      "inverted": false,
+      "subject": "shop",
+      "roleId": "5bffdaebc06a620d0f7572eb",
+      "conditions": {
+        "organizationId": "${user.organizationId}",
+        "createdBy": "${user.createdBy}"
+      },
+     },
+    {
+       "actions": [
+        "create",
+        "update",
+        "read"
+      ],
+      "fields": [],
+      "inverted": false,
+      "subject": "products",
+      "roleId": "5bffdaebc06a620d0f7572eb",
+      "conditions": {
+        "organizationId": "${user.organizationId}",
+        "createdBy": "${user.createdBy}"
+      },
+      "createdAt": "2018-11-29T13:29:26.483Z",
+      "updatedAt": "2018-11-29T13:29:26.483Z"
+    },
+    {
+       "actions": [
+        "manage"
+      ],
+      "fields": [],
+      "inverted": false,
+      "subject": "all",
+      "roleId": "5bffdaebc06a620d0f7572ee",
+      "conditions": {
+        "organizationId": "${user.organizationId}"
+      },
+     },
+    {
+       "actions": [
+        "read"
+      ],
+      "fields": [],
+      "inverted": false,
+      "subject": "shop",
+      "roleId": "5bffdaebc06a620d0f7572ed",
+      "conditions": {
+        "organizationId": "${user.organizationId}",
+        "createdBy": "${user.createdBy}"
+      },
+     },
+    {
+       "actions": [
+        "delete"
+      ],
+      "fields": [],
+      "inverted": true,
+      "subject": "products",
+      "roleId": "5bffdaebc06a620d0f7572eb",
+      "conditions": {
+        "organizationId": "${user.organizationId}",
+        "createdBy": "${user.createdBy}"
+      },
+     },
+    {
+       "actions": [
+        "create",
+        "update",
+        "read"
+      ],
+      "fields": [],
+      "inverted": false,
+      "subject": "products",
+      "roleId": "5bffdaebc06a620d0f7572ed",
+      "conditions": {
+        "organizationId": "${user.organizationId}",
+        "createdBy": "${user.createdBy}"
+      },
+     },
+
+    {
+       
+      "actions": [
+        "delete"
+      ],
+      "fields": [],
+      "inverted": true,
+      "subject": "products",
+      "roleId": "5bffdaebc06a620d0f7572ed",
+      "conditions": {
+        "organizationId": "${user.organizationId}",
+        "createdBy": "${user.createdBy}"
+      },
+     }
+  ]
+```
+
 
 ## Getting Started
 
-Getting up and running is as easy as 1, 2, 3.
-
-1. Make sure you have [NodeJS](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed.
+1. Clone the application repository
+    ```
+    $ git clone git@github.com:gowthaman-i2i/casl-featherjs-plus-example.git
+    ```
+ 
 2. Install your dependencies
-
     ```
-    cd path/to/casl-featherjs-plus-example; npm install
-    ```
-
-3. Start your app
-
-    ```
-    npm start
+    $ npm install
     ```
 
-## Testing
+3. Start your application
+    ```
+    $ npm start
+    ```
+4. Seed default set-up
+   ```
+    $ npm run start:seed
+   ```
+    or
 
-Simply run `npm test` and all your tests in the `test/` directory will be run.
+    Register default user, roles and permissions 
+    ``` 
+    $ npm run seed 
+    ```
+5. Documentation
+   ```
+    $ npm run docs
+   ```
+    
 
-## Scaffolding
+### API Base URL
 
-Feathers-plus has a powerful command line interface. Here are a few things it can do:
+API base URL - `http://localhost:3030/`
 
+### API Document - Swagger
+
+Swagger API document URL - `http://localhost:3030/docs`
+ 
+## Instruction to login
+1. Create new session
 ```
-$ npm install -g @feathers-plus/cli          # Install Feathers-plus CLI
+POST http://localhost:3030/authentication
+{
+  "strategy": "local",
+  "email": "test@test.com",
+  "password": "test1234"
+}
 
-$ feathers-plus generate options             # Specify options for this app
-$ feathers-plus generate app                 # Generate scaffolding for app
-$ feathers generate authentication           # Generate authentication and user-entity service
-$ feathers-plus generate secret              # Generate a new secret for authentication
-$ feathers-plus generate service             # Generate a new service with its model
-$ feathers-plus generate graphql             # Generate a GraphQL endpoint for services
-$ feathers-plus generate all                 # Regenerate the entire app
-$ feathers-plus help                         # Show all commands
+201 Created
+{ "accessToken": "...." }
 ```
+
+2. Put access token in `Authorization` header for all future requests
+
+## Routes
+
+* /shops
+* /products
+* /permissions
+* /users
+* /roles
+* /authentication
+
 
 ## Help
 
-For more information on all the things you can do, visit [the generator](https://generator.feathers-plus.com/), [FeathersJS](http://docs.feathersjs.com) and [extensions](https://feathers-plus.github.io/).
+For more information on all the things you can do, visit 
+ 1. [the generator](https://generator.feathers-plus.com/), 
+ 2. [feathersJS](http://docs.feathersjs.com) 
+ 3. [extensions](https://feathers-plus.github.io/).
+ 4. [authorization-with-casl-in-feathersjs](https://github.com/stalniy/casl-feathersjs-example)
+ 5. [casl-feathers-example](https://medium.com/@sergiy.stotskiy/authorization-with-casl-in-feathersjs-app-fd6e24eefbff)
+ 6. [casl-ability](https://github.com/stalniy/casl/tree/master/packages/casl-ability)
+ 7. [casl-mongoose](https://github.com/stalniy/casl/tree/master/packages/casl-mongoose)
+ 
 
 ## Changelog
 

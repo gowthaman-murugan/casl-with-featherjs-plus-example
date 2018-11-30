@@ -1,3 +1,7 @@
+/**
+ * @namespace Permissions
+ * @memberof module:APP.Service
+ */
 
 // Initializes the `permissions` service on path `/permissions`. (Can be re-generated.)
 const createService = require('feathers-mongoose');

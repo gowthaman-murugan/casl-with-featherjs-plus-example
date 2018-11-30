@@ -14,7 +14,7 @@ let env = (config.tests || {}).environmentsAllowingSeedData || [];
 let ifDbChangesAllowed = env.includes(process.env.NODE_ENV);
 
 // Get generated fake data
-let fakeData = readJsonFileSync(join(__dirname, '../seeds/db-dumb.json')) || {};
+let fakeData = readJsonFileSync(join(__dirname, '../seeds/db-dump.json')) || {};
 
 // Get generated services
 let services = (readJsonFileSync(join(__dirname, '../feathers-gen-specs.json')) || {}).services;
@@ -26,7 +26,7 @@ module.exports = async function (app) {
   if (!ifDbChangesAllowed) return;
 
   if (!Object.keys(fakeData).length) {
-    console.log('Cannot seed services as seed/db-dumb.json doesn\'t have seed data.');
+    console.log('Cannot seed services as seed/db-dump.json doesn\'t have seed data.');
     return;
   }
   if (!services || !Object.keys(services).length) {
