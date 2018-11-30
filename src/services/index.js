@@ -1,4 +1,7 @@
-
+/**
+ * @namespace Service
+ * @memberof module:APP
+ */
 // Configure the Feathers services. (Can be re-generated.)
 let organizations = require('./organizations/organizations.service');
 let permissions = require('./permissions/permissions.service');

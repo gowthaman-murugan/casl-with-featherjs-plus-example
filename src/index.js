@@ -1,4 +1,6 @@
-
+/**
+ * @module APP
+ */
 /* eslint-disable no-console */
 // Start the server. (Can be re-generated.)
 // !code: preface // !end

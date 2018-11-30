@@ -1,3 +1,7 @@
+/**
+ * @namespace Organizations
+ * @memberof module:APP.Service
+ */
 
 // Initializes the `organizations` service on path `/organizations`. (Can be re-generated.)
 const createService = require('feathers-mongoose');
