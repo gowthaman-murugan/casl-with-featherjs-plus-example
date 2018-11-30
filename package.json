@@ -5,7 +5,13 @@
   "homepage": "",
   "main": "src",
   "keywords": [
-    "feathers"
+    "feathers",
+    "feathers-plus",
+    "CASL",
+    "roles",
+    "permissions",
+    "jwt token",
+    "CASL in Feathersjs-plus app"
   ],
   "author": {
     "name": "gowthaman-i2i",
